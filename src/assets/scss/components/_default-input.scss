@@ -1,0 +1,26 @@
+.default-input {
+  width: 100%;
+
+  color: var(--main-blue-color);
+  font-family: var(--default-font);
+  font-size: 1rem;
+  font-weight: 500;
+
+  padding: 0.3125rem 0;
+  border: none;
+  border-bottom: var(--1px) solid var(--gray);
+  outline: none;
+
+  transition: border 0.15s ease;
+
+  &::placeholder {
+    color: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+  }
+  &:focus,
+  &:focus-visible {
+    border-bottom: var(--1px) solid var(--black);
+  }
+}

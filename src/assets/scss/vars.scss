@@ -1,0 +1,30 @@
+:root {
+  --default-font: "Montserrat", sans-serif;
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #dddddd;
+  --1px: 0.0625rem;
+
+  --main-bg-color: #f4f4f4;
+  --main-gray-color: #dde3f7;
+  --main-light-gray-color: #d1e2f9;
+  --main-light-gray-color-2: #f0f4ff;
+  --main-blue-color: #34486c;
+  --main-purple-color: #5d6af7;
+  --main-red-color: #ff0d55;
+  --main-orange-color: #f75d5d;
+  --main-green-color: #00dd31;
+  --main-yellow-color: #ffb444;
+
+  --default-shadow: 0.1875rem 0.1875rem 0.6875rem 0 rgba(0, 0, 0, 0.04),
+    -0.125rem -0.125rem 0.5rem 0 rgba(255, 255, 255, 0.64);
+  --default-shadow-2: 0.125rem 0.125rem 0.1875rem 0 rgba(0, 0, 0, 0.1),
+    -0.0625rem -0.0625rem 0.625rem 0 rgba(255, 255, 255, 0.07);
+  --card-shadow: 0 0.25rem 0.625rem 0 #00000026;
+
+  --border-color: #dddddd;
+
+  --default-radius: 0.625rem;
+
+  --small-text-size: 0.75rem;
+}

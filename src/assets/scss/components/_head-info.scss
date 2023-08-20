@@ -1,0 +1,145 @@
+.head-info {
+  display: flex;
+  align-items: center;
+
+  padding: 1rem 2rem;
+
+  border-radius: var(--default-radius);
+  border: var(--1px) solid var(--white);
+  background: var(--main-light-gray-color-2);
+  box-shadow: 0 1.125rem 1.25rem 0 rgba(255, 255, 255, 0.25) inset, 0 0.625rem 2.5rem 0 rgba(0, 0, 0, 0.05),
+    0 -0.625 1.25rem 0 var(--white);
+
+  // .head-info__socials
+
+  &__socials {
+    display: flex;
+
+    margin-right: 8.75rem;
+  }
+
+  // .head-info__info
+
+  &__info {
+    margin-right: 1rem;
+  }
+
+  //  .head-info__text
+
+  &__text {
+    margin: 0;
+
+    color: var(--main-red-color);
+    font-size: var(--small-text-size);
+    font-weight: 500;
+
+    & + & {
+      margin-top: 0.3125rem;
+    }
+  }
+
+  // .head-info__button
+
+  &__button {
+    cursor: pointer;
+    border: none;
+
+    display: block;
+    padding: 0.375rem;
+
+    border-radius: var(--default-radius);
+    background: linear-gradient(135deg, #cde0fa 0%, #d4e4f9 100%);
+    box-shadow: 0.125rem 0.125rem 0.1875rem 0 rgba(0, 0, 0, 0.1),
+      -var(--1px) -var(--1px) 0.1875rem 0 rgba(255, 255, 255, 0.07);
+
+    transition: transform 0.15s ease;
+    &:hover {
+      background: linear-gradient(135deg, #6de5ff 0%, #c1dcff 100%);
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  // .nav-menu__icon
+
+  &__icon {
+    display: block;
+
+    width: 1.75rem;
+    height: 1.75rem;
+
+    fill: var(--white);
+  }
+
+  // .head-info__callback
+
+  &__callback {
+    display: flex;
+
+    margin-left: auto;
+  }
+
+  // .head-info__mail
+
+  &__mail {
+    padding-left: 2.6875rem;
+
+    background-position: 0 -0.1875rem;
+    background-size: 1.75rem 1.75rem;
+    background-repeat: no-repeat;
+    background-image: url("/images/icons/email.svg");
+
+    color: var(--main-blue-color);
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // .head-info__time
+
+  &__time {
+    margin-left: 2rem;
+    padding-left: 2.6875rem;
+
+    background-position: 0 -0.1875rem;
+    background-size: 1.75rem 1.75rem;
+    background-repeat: no-repeat;
+    background-image: url("/images/icons/phone.svg");
+
+    color: var(--main-blue-color);
+  }
+
+  // .head-info__tel
+
+  &__tel {
+    color: inherit;
+
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // .head-info__schedule
+
+  &__schedule {
+    display: flex;
+    align-items: center;
+
+    font-size: var(--small-text-size);
+    font-weight: 500;
+    span {
+      margin: 0 0.625rem;
+    }
+    img {
+      display: block;
+    }
+  }
+}

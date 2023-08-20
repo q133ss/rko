@@ -1,0 +1,61 @@
+.button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+
+  border: none;
+  border-radius: 0.3125rem;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &:hover {
+    box-shadow: 0 0.8125rem 0.9375rem 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &__svg {
+    display: block;
+    margin-right: 0.625rem;
+  }
+
+  &_purple {
+    background-color: var(--main-purple-color);
+    color: var(--white);
+    .button__svg {
+      fill: var(--white);
+    }
+  }
+
+  &_orange {
+    background-color: var(--main-orange-color);
+    color: var(--white);
+    .button__svg {
+      fill: var(--white);
+    }
+  }
+
+  &_green {
+    background-color: var(--main-green-color);
+    color: var(--white);
+    .button__svg {
+      fill: var(--white);
+    }
+  }
+
+  &_yellow {
+    background-color: var(--main-yellow-color);
+    color: var(--main-blue-color);
+    .button__svg {
+      fill: var(--main-blue-color);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import url("./fonts.scss");
+@import url("./vars.scss");
+@import url("./mixins.scss");
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  color: var(--main-blue-color);
+  font-family: var(--default-font);
+  background-color: var(--main-bg-color);
+}
+
+@import url("./components/_default-input.scss");
