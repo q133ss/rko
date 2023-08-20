@@ -4,6 +4,7 @@
   max-width: 250px;
   position: sticky;
   top: 0;
+  background-color: var(--main-light-gray-color-2);
 
   // .nav-menu__wrap
 
@@ -270,6 +271,7 @@
 
   &__prompt-content {
     padding: 0.625rem 1rem;
+    background-color: var(--white);
   }
 
   // .nav-menu__prompt-price

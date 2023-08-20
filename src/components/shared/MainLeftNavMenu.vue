@@ -2,7 +2,7 @@
   <div class="nav-menu">
     <div class="nav-menu__wrap">
       <div class="nav-menu__logo">
-        <img src="/public/images/logo.svg" alt="Логотип RKO Group" />
+        <img src="/images/logo.svg" alt="Логотип RKO Group" />
       </div>
       <div class="nav-menu__info">
         <div class="nav-menu__head">
@@ -10,11 +10,12 @@
           <div class="nav-menu__position">{{ data.pos }}</div>
         </div>
         <div class="nav-menu__avatar">
-          <button class="nav-menu__button nav-menu__edit">
+          <router-link class="nav-menu__button nav-menu__edit" :to="{ name: 'Profile' }">
+            <!--:class="$route.name == 'Profile' ? 'nav-menu__link_active' : ''"-->
             <SvgIcon class="nav-menu__icon" name="edit-user" />
-          </button>
+          </router-link>
           <div class="nav-menu__photo">
-            <img class="nav-menu__photo-img" src="/public/images/avatar.jpg" :alt="`Аватар ${data.name}`" />
+            <img class="nav-menu__photo-img" src="/images/avatar.jpg" :alt="`Аватар ${data.name}`" />
           </div>
           <button class="nav-menu__button nav-menu__log-out">
             <SvgIcon class="nav-menu__icon" name="logout" />
@@ -24,11 +25,15 @@
       </div>
       <nav class="nav-menu__nav">
         <ul class="nav-menu__list">
-          <li class="nav-menu__item" v-for="(link, i) in links" :key="link.title">
-            <a class="nav-menu__link" :href="link.route" :class="{ active: i === 0 }">
+          <li class="nav-menu__item" v-for="link in links" :key="link.title">
+            <router-link
+              class="nav-menu__link"
+              :class="$route.name == link.route ? 'nav-menu__link_active' : ''"
+              :to="{ name: link.route }"
+            >
               <SvgIcon class="nav-menu__link-icon" :name="link.icon" />
               <span class="nav-menu__link-text">{{ link.title }}</span>
-            </a>
+            </router-link>
           </li>
         </ul>
       </nav>
@@ -77,12 +82,12 @@
 
   const data = { number: "0000", pos: "Веб-Мастер", name: "Степанов Олег Александрович" };
   const links = [
-    { icon: "dashboard", route: "/", title: "Статистика" },
-    { icon: "form", route: "/", title: "Заявки" },
-    { icon: "bank", route: "/", title: "Предложения" },
-    { icon: "documents", route: "/", title: "Документы" },
-    { icon: "services", route: "/", title: "Реферальная система" },
-    { icon: "money", route: "/", title: "Финансы" },
+    { icon: "dashboard", route: "Profile", title: "Статистика" },
+    { icon: "form", route: "Applications", title: "Заявки" },
+    { icon: "bank", route: "Profile", title: "Предложения" },
+    { icon: "documents", route: "Applications", title: "Документы" },
+    { icon: "services", route: "Profile", title: "Реферальная система" },
+    { icon: "money", route: "Applications", title: "Финансы" },
   ];
   const balance = "0";
 

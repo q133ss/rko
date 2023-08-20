@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-  import SvgIcon from "./SvgIcon.vue";
+  import SvgIcon from "../shared/SvgIcon.vue";
   const props = defineProps({
     icon: {
       type: String,
