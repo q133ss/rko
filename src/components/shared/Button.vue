@@ -1,6 +1,6 @@
 <template>
-  <button class="button" :class="{ button_purple: purple, button_orange: orange, button_green: green }">
-    <div class="button__icon">
+  <button class="button" :class="{ button_purple: purple, button_orange: orange, button_green: green, button_yellow: yellow }">
+    <div class="button__icon" v-if="icon">
       <SvgIcon class="button__svg" :name="icon" />
     </div>
     <slot />
@@ -20,6 +20,9 @@
       type: Boolean,
     },
     green: {
+      type: Boolean,
+    },
+    yellow: {
       type: Boolean,
     },
   });

@@ -53,9 +53,9 @@
 
   &_yellow {
     background-color: var(--main-yellow-color);
-    color: var(--main-blue-color);
+    color: var(--white);
     .button__svg {
-      fill: var(--main-blue-color);
+      fill: var(--white);
     }
   }
 }

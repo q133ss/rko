@@ -159,7 +159,7 @@
         border-bottom: none;
       }
     }
-    &:has(.active) {
+    &:has(.router-link-active) {
       pointer-events: none;
       background-color: var(--white);
 

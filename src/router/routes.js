@@ -7,19 +7,6 @@ import DefaultLayout from '@/layouts/Default.vue'
 const routes = [
     {
         path: '/',
-        name: 'Public',
-        component: DefaultLayout,
-        redirect: '/',
-        children: [
-            {
-                path: '/',
-                name: 'Home',
-                component: Home,
-            }
-        ]
-    },
-    {
-        path: '/profile',
         name: 'Profile',
         component: DefaultLayout,
         redirect: '/profile',

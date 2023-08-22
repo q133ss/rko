@@ -82,7 +82,7 @@
 
   const data = { number: "0000", pos: "Веб-Мастер", name: "Степанов Олег Александрович" };
   const links = [
-    { icon: "dashboard", route: "Profile", title: "Статистика" },
+    //{ icon: "dashboard", route: "Profile", title: "Статистика" },
     { icon: "form", route: "Applications", title: "Заявки" },
     { icon: "bank", route: "Profile", title: "Предложения" },
     { icon: "documents", route: "Applications", title: "Документы" },
