@@ -93,19 +93,87 @@
   &__chart {
   }
 
+  // .statistics__link
+
+  &__link {
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+    &:hover {
+      .statistics__svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // .statistics__svg
+
+  &__svg {
+    display: block;
+    fill: var(--main-blue-color);
+    transition: transform 0.3s ease;
+  }
+
   // .statistics__operations
 
   &__operations {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    thead {
+      tr {
+        border-bottom: var(--1px) solid var(--gray);
+      }
+      th {
+        font-weight: 600;
+        padding-bottom: 1rem;
+      }
+    }
+    tbody {
+      td {
+        font-size: var(--small-text-size);
+        font-weight: 500;
+        padding-top: 1rem;
+      }
+    }
   }
 }
+
 .statistics-chart {
   // .statistics-chart__filters
 
   &__filters {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
   }
 
   // .statistics-chart__filter
 
   &__filter {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    padding: 0;
+    padding-bottom: 0.8125rem;
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0.1875rem;
+      background-color: var(--main-blue-color);
+    }
+    &_active {
+      color: var(--main-purple-color);
+      &::before {
+        background-color: var(--main-purple-color);
+      }
+    }
   }
 }

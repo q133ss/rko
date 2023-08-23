@@ -19,4 +19,8 @@ body {
   background-color: var(--main-bg-color);
 }
 
+button {
+  font-family: inherit
+}
+
 @import url("./components/_default-input.scss");
