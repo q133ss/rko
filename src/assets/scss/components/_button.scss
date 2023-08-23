@@ -1,4 +1,6 @@
 .button {
+  font-family: inherit;
+  text-decoration: none;
   cursor: pointer;
 
   display: flex;
@@ -22,9 +24,18 @@
     transform: scale(0.98);
   }
 
+  // .button__icon
+
+  &__icon {
+    margin-right: 0.625rem;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  // .button__svg
+
   &__svg {
     display: block;
-    margin-right: 0.625rem;
   }
 
   &_purple {
@@ -54,6 +65,23 @@
   &_yellow {
     background-color: var(--main-yellow-color);
     color: var(--white);
+    .button__svg {
+      fill: var(--white);
+    }
+  }
+
+  &_brown {
+    background-color: var(--main-brown-color);
+    color: var(--white);
+    .button__svg {
+      fill: var(--white);
+    }
+  }
+
+  &_yellow-transparent {
+    background-color: transparent;
+    color: var(--main-yellow-color);
+    border: var(--1px) solid var(--main-yellow-color);
     .button__svg {
       fill: var(--white);
     }

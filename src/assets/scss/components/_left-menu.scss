@@ -1,7 +1,7 @@
 .nav-menu {
   height: 100vh;
   overflow-y: auto;
-  max-width: 250px;
+  max-width: 16rem;
   position: sticky;
   top: 0;
   background-color: var(--main-light-gray-color-2);
@@ -185,6 +185,7 @@
     color: var(--main-blue-color);
     padding: 0.625rem 0;
     border-bottom: var(--1px) solid var(--border-color);
+    font-size: var(--small-text-size);
   }
 
   // .nav-menu__link-icon
@@ -209,11 +210,12 @@
     margin-top: auto;
   }
 
-  // .nav-menu__balance__head
+  // .nav-menu__balance-head
 
   &__balance-head {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   // .nav-menu__balance-icon

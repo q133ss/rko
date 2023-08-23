@@ -1,0 +1,129 @@
+.offer-article {
+  // .offer-article__info
+
+  &__info {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  // .offer-article__left
+
+  &__left {
+    max-width: 41.25rem;
+    width: 100%;
+    margin-right: 2rem;
+  }
+
+  // .offer-article__box
+
+  &__box {
+    padding: 1rem;
+    background-color: var(--white);
+    box-shadow: var(--card-light-shadow);
+    border-radius: var(--default-radius);
+    & + & {
+      margin-top: 1rem;
+    }
+  }
+
+  // .offer-article__top
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // .offer-article__logo
+
+  &__logo {
+  }
+
+  // .offer-article__img
+
+  &__img {
+  }
+
+  // .offer-article__nameplate
+
+  &__nameplate {
+    border-radius: 0.3125rem;
+    color: var(--white);
+    font-size: var(--small-text-size);
+    font-weight: 600;
+    padding: 0.3125rem 0.625rem;
+    &_active {
+      background-color: var(--main-green-color);
+    }
+    &_disabled {
+      background-color: var(--main-dark-gray-color);
+    }
+  }
+
+  // .offer-article__name
+
+  &__name {
+    position: relative;
+    padding-left: 2rem;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    margin: 1.5rem 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 8px;
+      height: 100%;
+      border-radius: 0 3rem 0 3rem;
+      background-color: var(--main-purple-color);
+    }
+  }
+
+  // .offer-article__list
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  // .offer-article__text
+
+  &__text {
+    & + & {
+      margin-top: 0.625rem;
+    }
+  }
+
+  // .offer-article__button
+
+  &__button {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    margin-top: 2rem;
+    &:deep() {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  // .offer-article__right
+
+  &__right {
+    max-width: 41.25rem;
+    width: 100%;
+  }
+
+  // .offer-article__title
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+}

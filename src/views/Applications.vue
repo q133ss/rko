@@ -1,34 +1,32 @@
 <template>
   <div class="applications">
     <div class="applications__head">
-      <router-link class="applications__link" to="/">
+      <router-link class="applications__link" to="/applications">
         <SvgIcon class="applications__icon" name="form" />
         <div class="applications__link-text">Заявки</div>
       </router-link>
-      <router-link class="applications__link" to="/">
+      <router-link class="applications__link" to="/referrals">
         <SvgIcon class="applications__icon" name="services" />
         <div class="applications__link-text">Реф.Ссылки</div>
       </router-link>
       <Button class="applications__button" icon="export" yellow>Экспорт</Button>
-      <Button class="applications__button" icon="plus" purple>Создать заявку</Button>
+      <Button class="applications__button" icon="plus" to="/create-application" purple> Создать заявку </Button>
     </div>
     <div class="applications__inputs">
       <div class="applications__item">
         <CustomSelect title="Даты" placeholder="2023-07-09 - 2023-08-09" :sublistItems="dates" />
       </div>
-      <label class="applications__label">
-        <div class="applications__title">Введите ИНН</div>
-        <input class="applications__input" type="text" placeholder="Введите ИНН" />
-      </label>
-      <label class="applications__label">
-        <div class="applications__title">Телефон</div>
-        <input class="applications__input" type="text" placeholder="Введите телефон" />
-      </label>
       <div class="applications__item">
-        <CustomSelect title="Офферы" placeholder="Выберите оффер" :sublistItems="dates" />
+        <CustomInput title="ИНН" placeholder="Введите ИНН" :sublistItems="dates" />
       </div>
       <div class="applications__item">
-        <CustomSelect title="Статус" placeholder="Выберите статус" :sublistItems="dates" arrow />
+        <CustomInput title="Телефон" placeholder="Введите телефон" :sublistItems="dates" />
+      </div>
+      <div class="applications__item">
+        <CustomSelect title="Офферы" placeholder="Выберите оффер" :sublistItems="offers" />
+      </div>
+      <div class="applications__item">
+        <CustomSelect title="Статус" placeholder="Выберите статус" :sublistItems="status" arrow />
       </div>
       <div class="applications__apply">
         <Button class="applications__apply-button" yellow>Применить</Button>
@@ -88,6 +86,7 @@
   import SvgIcon from "@/components/shared/SvgIcon.vue";
   import Button from "@/components/shared/Button.vue";
   import CustomSelect from "@/components/shared/CustomSelect.vue";
+  import CustomInput from "@/components/shared/CustomInput.vue";
 
   const showSelect = false;
   const hasPoint = false;
@@ -112,6 +111,55 @@
     {
       title: "Квартал",
       value: "date-5",
+    },
+  ];
+
+  const status = [
+    {
+      title: "Статус 1 (Инфо)",
+      value: "status-1",
+    },
+    {
+      title: "Статус 2 (Инфо)",
+      value: "status-2",
+    },
+    {
+      title: "Статус 3 (Инфо)",
+      value: "status-3",
+    },
+    {
+      title: "Статус 4 (Инфо)",
+      value: "status-4",
+    },
+    {
+      title: "Статус 5 (Инфо)",
+      value: "status-5",
+    },
+  ];
+  const offers = [
+    {
+      title: "(3) Локо Банк РКО",
+      value: "offer-1",
+    },
+    {
+      title: "(12) Касса Тинькофф",
+      value: "offer-2",
+    },
+    {
+      title: "(10) Тинькофф - Кредит для Бизнеса",
+      value: "offer-3",
+    },
+    {
+      title: "(3) Локо Банк РКО",
+      value: "offer-1",
+    },
+    {
+      title: "(12) Касса Тинькофф",
+      value: "offer-2",
+    },
+    {
+      title: "(10) Тинькофф - Кредит для Бизнеса",
+      value: "offer-3",
     },
   ];
 </script>

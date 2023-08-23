@@ -1,0 +1,107 @@
+<template>
+  <div class="statistics">
+    <div class="statistics__boxes">
+      <div class="statistics__box">
+        <div class="statistics__head statistics__head_border">
+          <div class="statistics__title">Заработок</div>
+          <div class="statistics__select">за сегодня</div>
+        </div>
+        <table class="statistics__balances">
+          <thead>
+            <tr>
+              <th>Всего, RUB</th>
+              <th>Баланс, RUB</th>
+              <th>Холд, RUB</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="statistics__box">
+        <div class="statistics__head">
+          <div class="statistics__title">Баланс</div>
+        </div>
+        <table class="statistics__table">
+          <thead>
+            <tr>
+              <th>Валюта</th>
+              <th>Всего</th>
+              <th>Баланс</th>
+              <th>Холд</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RUB</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="statistics__box">
+      <div class="statistics__head">
+        <div class="statistics__title">Баланс</div>
+        <div class="statistics__select">за сегодня</div>
+      </div>
+      <div class="statistics__chart statistics-chart">
+        <div class="statistics-chart__filters">
+          <button class="statistics-chart__filter">Лиды</button>
+          <button class="statistics-chart__filter">Конверсии</button>
+          <button class="statistics-chart__filter">Доход</button>
+        </div>
+        <img src="/images/chart.svg" alt="" />
+      </div>
+    </div>
+    <div class="statistics__box">
+      <div class="statistics__head">
+        <div class="statistics__title">Последнии операции по заявка</div>
+        <router-link to="/referrals">link</router-link>
+      </div>
+      <table class="statistics__operations">
+        <thead>
+          <tr>
+            <th>Дата</th>
+            <th>Номер</th>
+            <th>Статус</th>
+            <th>Оффер</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2023-07-09</td>
+            <td>174</td>
+            <td>Отправлен</td>
+            <td>(5) Райфайзен</td>
+          </tr>
+          <tr>
+            <td>2023-07-09</td>
+            <td>237</td>
+            <td>Отклонён</td>
+            <td>(1) МТС Банк RKO</td>
+          </tr>
+          <tr>
+            <td>2023-07-09</td>
+            <td>187</td>
+            <td>Выполнен</td>
+            <td>(3) Локо Банк RKO</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script setup></script>
+
+<style scoped lang="scss">
+  @import "@/assets/scss/components/_statistics.scss";
+</style>

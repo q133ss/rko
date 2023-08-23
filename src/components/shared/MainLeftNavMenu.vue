@@ -10,7 +10,7 @@
           <div class="nav-menu__position">{{ data.pos }}</div>
         </div>
         <div class="nav-menu__avatar">
-          <router-link class="nav-menu__button nav-menu__edit" :to="{ name: 'Profile' }">
+          <router-link class="nav-menu__button nav-menu__edit" to="/profile">
             <!--:class="$route.name == 'Profile' ? 'nav-menu__link_active' : ''"-->
             <SvgIcon class="nav-menu__icon" name="edit-user" />
           </router-link>
@@ -29,7 +29,7 @@
             <router-link
               class="nav-menu__link"
               :class="$route.name == link.route ? 'nav-menu__link_active' : ''"
-              :to="{ name: link.route }"
+              :to="link.route"
             >
               <SvgIcon class="nav-menu__link-icon" :name="link.icon" />
               <span class="nav-menu__link-text">{{ link.title }}</span>
@@ -82,12 +82,12 @@
 
   const data = { number: "0000", pos: "Веб-Мастер", name: "Степанов Олег Александрович" };
   const links = [
-    //{ icon: "dashboard", route: "Profile", title: "Статистика" },
-    { icon: "form", route: "Applications", title: "Заявки" },
-    { icon: "bank", route: "Profile", title: "Предложения" },
-    { icon: "documents", route: "Applications", title: "Документы" },
-    { icon: "services", route: "Profile", title: "Реферальная система" },
-    { icon: "money", route: "Applications", title: "Финансы" },
+    { icon: "dashboard", route: "/statistics", title: "Статистика" },
+    { icon: "form", route: "/applications", title: "Заявки" },
+    { icon: "bank", route: "/offers", title: "Предложения" },
+    //{ icon: "documents", route: "Home", title: "Документы" },
+    { icon: "services", route: "/referrals", title: "Реферальная система" },
+    { icon: "money", route: "/", title: "Финансы" },
   ];
   const balance = "0";
 
@@ -96,7 +96,6 @@
   }
 
   function onBeforeEnter(el) {
-    console.log(el);
     el.style.height = "0";
   }
   function onEnter(el) {

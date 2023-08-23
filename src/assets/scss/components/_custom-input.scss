@@ -1,0 +1,55 @@
+.custom-input {
+  &_darken {
+    .custom-input__input {
+      background-color: var(--main-dark-gray-color);
+      &:hover {
+        background-color: var(--main-dark-gray-color-hover);
+      }
+    }
+  }
+
+  // .custom-input__title
+
+  &__title {
+    margin-bottom: 0.25rem;
+
+    font-size: var(--small-text-size);
+    font-weight: 500;
+    padding-left: 1rem;
+  }
+
+  // .custom-input__input
+
+  &__input {
+    outline: none;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    box-shadow: 0 0.3125rem 1.25rem 0 #0000000d;
+    border: var(--1px) solid var(--white);
+    background-color: var(--main-light-gray-color-2);
+    border-radius: 0.3125rem;
+
+    padding: 0.657rem 1rem;
+
+    text-align: left;
+    font-size: var(--small-text-size);
+    font-weight: 500;
+    font-family: var(--default-font);
+
+    transition: background-color 0.15s ease;
+
+    &::placeholder {
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      font-family: inherit;
+    }
+
+    &:hover {
+      background-color: var(--main-light-gray-color-hover);
+    }
+  }
+}

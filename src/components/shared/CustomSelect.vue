@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-select">
+  <div class="custom-select" :class="{ 'custom-select_open': showSubmenu && arrow }">
     <div class="custom-select__title">{{ title }}</div>
     <button class="custom-select__button" @click="toggleSubmenu">
       {{ placeholder }}

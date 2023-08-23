@@ -1,4 +1,10 @@
 .custom-select {
+  &_open {
+    .custom-select__icon {
+      transform: rotate(-180deg);
+    }
+  }
+
   // .custom-select__title
 
   &__title {
@@ -20,11 +26,12 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     box-shadow: 0 0.3125rem 1.25rem 0 #0000000d;
     border: var(--1px) solid var(--white);
     background-color: var(--main-light-gray-color-2);
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 
     padding: 0.657rem 1rem;
 
@@ -53,11 +60,13 @@
   &__icon {
     display: block;
 
-    width: 28px;
-    height: 28px;
+    width: 1.75rem;
+    height: 1.75rem;
     flex-shrink: 0;
 
     background-image: url("/images/icons/arrow.svg");
+
+    transition: transform 0.15s ease;
   }
 
   // .custom-select__selecteds
@@ -76,7 +85,7 @@
     border-radius: 5rem;
     background: #e5e5e5;
 
-    margin: 0.5rem 0;
+    margin-top: 0.5rem;
     padding: 0.25rem 0.625rem;
 
     color: var(--main-blue-color);
@@ -118,7 +127,7 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 2px;
+      width: 0.125rem;
       height: 50%;
       background-color: var(--main-dark-blue-color);
       border-radius: 5rem;
@@ -138,6 +147,8 @@
     background-color: var(--white);
     border-radius: var(--default-radius);
     border: var(--1px) solid var(--white);
+    overflow-y: auto;
+    max-height: 14rem;
   }
 
   // .custom-select__menu

@@ -1,12 +1,12 @@
-.applications {
-  // .applications__head
+.referrals {
+  // .referrals__head
 
   &__head {
     display: flex;
     margin-bottom: 2rem;
   }
 
-  // .applications__link
+  // .referrals__link
 
   &__link {
     flex: 1;
@@ -23,13 +23,13 @@
     }
     &.router-link-active {
       color: var(--main-red-color);
-      .applications__icon {
+      .referrals__icon {
         fill: var(--main-red-color);
       }
     }
   }
 
-  // .applications__icon
+  // .referrals__icon
 
   &__icon {
     fill: var(--main-blue-color);
@@ -38,12 +38,12 @@
     height: 1.75rem;
   }
 
-  // .applications__link-text
+  // .referrals__link-text
 
   &__link-text {
   }
 
-  // .applications__button
+  // .referrals__button
 
   &__button {
     padding: 0.375rem 1rem;
@@ -52,21 +52,26 @@
     }
   }
 
-  // .applications__inputs
+  // .referrals__content
+
+  &__content {
+    max-width: 87.5rem;
+  }
+
+  // .referrals__inputs
 
   &__inputs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem 2rem;
-    max-width: 87.5rem;
   }
 
-  // .applications__label
+  // .referrals__label
 
   &__label {
   }
 
-  // .applications__title
+  // .referrals__title
 
   &__title {
     margin-bottom: 0.25rem;
@@ -76,7 +81,7 @@
     padding-left: 1rem;
   }
 
-  // .applications__input
+  // .referrals__input
 
   &__input {
     outline: none;
@@ -115,23 +120,24 @@
     }
   }
 
-  // .applications__select
+  // .referrals__select
 
   &__select {
   }
 
-  // .applications__apply
+  // .referrals__apply
 
   &__apply {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-top: 2rem;
     &-button {
       padding: 0.675rem 5rem;
     }
   }
 
-  // .applications__info
+  // .referrals__info
 
   &__info {
     background-color: var(--white);
@@ -141,7 +147,7 @@
     padding: 2rem 3rem;
   }
 
-  // .applications__table
+  // .referrals__table
 
   &__table {
     width: 100%;
