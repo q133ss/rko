@@ -10,18 +10,32 @@
   box-shadow: 0 1.125rem 1.25rem 0 rgba(255, 255, 255, 0.25) inset, 0 0.625rem 2.5rem 0 rgba(0, 0, 0, 0.05),
     0 -0.625 1.25rem 0 var(--white);
 
+  @media (max-width: 1440px) {
+    padding: 1rem;
+  }
+  
+  @media (max-width: 600px) {
+    display: block;
+  }
+
   // .head-info__socials
 
   &__socials {
     display: flex;
 
     margin-right: 8.75rem;
+    @media (max-width: 1440px) {
+      margin-right: 1rem;
+    }
   }
 
   // .head-info__info
 
   &__info {
     margin-right: 1rem;
+    @media (max-width: 600px) {
+      margin: 1rem 0;
+    }
   }
 
   //  .head-info__text
@@ -78,9 +92,11 @@
   // .head-info__callback
 
   &__callback {
-    display: flex;
-
     margin-left: auto;
+
+    @media (min-width: 1281px) {
+      display: flex;
+    }
   }
 
   // .head-info__mail
@@ -88,7 +104,7 @@
   &__mail {
     padding-left: 2.6875rem;
 
-    background-position: 0 -0.1875rem;
+    background-position: 0 -0.25rem;
     background-size: 1.75rem 1.75rem;
     background-repeat: no-repeat;
     background-image: url("/images/icons/email.svg");
@@ -104,7 +120,7 @@
   // .head-info__time
 
   &__time {
-    margin-left: 2rem;
+    margin-top: 1rem;
     padding-left: 2.6875rem;
 
     background-position: 0 -0.1875rem;
@@ -113,6 +129,10 @@
     background-image: url("/images/icons/phone.svg");
 
     color: var(--main-blue-color);
+    @media (min-width: 1281px) {
+      margin-left: 2rem;
+      margin-top: 0;
+    }
   }
 
   // .head-info__tel

@@ -15,13 +15,16 @@
   import MainHeadInfo from "@/components/shared/MainHeadInfo.vue";
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .wrap {
     display: flex;
   }
   .inner {
     flex: 1;
     padding: 1rem 2rem;
+    @media (max-width: 1024px) {
+      padding: 1rem;
+    }
   }
   .top-info {
     margin-bottom: 2rem;

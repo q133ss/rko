@@ -82,7 +82,7 @@
         </label>
 
         <label class="cabinet__input">
-          <span class="cabinet__input-text"></span>
+          <span class="cabinet__input-text cabinet__input-text_mobile-hide"></span>
           <Checkbox>Наличие электронного документооборота</Checkbox>
         </label>
       </div>
