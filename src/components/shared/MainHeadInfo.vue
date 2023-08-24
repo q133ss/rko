@@ -1,9 +1,9 @@
 <template>
   <div class="head-info">
     <div class="head-info__socials">
-      <button class="head-info__button">
+      <!--<button class="head-info__button">
         <SvgIcon class="head-info__icon" name="message" />
-      </button>
+      </button>-->
       <a class="head-info__button" href="/" target="_blank">
         <SvgIcon class="head-info__icon" name="telegram" />
       </a>
