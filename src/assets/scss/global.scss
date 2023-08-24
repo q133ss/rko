@@ -17,10 +17,13 @@ body {
   color: var(--main-blue-color);
   font-family: var(--default-font);
   background-color: var(--main-bg-color);
+  &.hidden {
+    overflow: hidden;
+  }
 }
 
 button {
-  font-family: inherit
+  font-family: inherit;
 }
 
 @import url("./components/_default-input.scss");

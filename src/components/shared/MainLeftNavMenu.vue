@@ -105,6 +105,7 @@
 
   function showMenu() {
     openMenu.value = !openMenu.value;
+    document.body.classList.toggle("hidden");
   }
 
   function onBeforeEnter(el) {
