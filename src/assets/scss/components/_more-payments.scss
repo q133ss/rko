@@ -1,0 +1,163 @@
+.more-payments {
+  // .more-payments__head
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  // .more-payments__title
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  // .more-payments__buttons
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  // .more-payments__button
+
+  &__button {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.15s ease;
+    &:hover {
+      transform: scale(1.1);
+      .more-payments__svg {
+        fill: var(--main-yellow-color);
+      }
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  // .more-payments__search
+
+  &__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: var(--1px) solid var(--gray);
+  }
+
+  // .more-payments__input
+
+  &__input {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    padding-bottom: 0.325rem;
+
+    font-size: 0.875rem;
+    outline: none;
+
+    &::placeholder {
+      color: var(--main-opacity-blue-color);
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+    }
+  }
+
+  // .more-payments__line
+
+  &__line {
+    display: inline-block;
+    width: var(--1px);
+    height: 1rem;
+    background-color: var(--gray);
+    margin: 0 0.625rem;
+  }
+  // .more-payments__cross
+
+  &__cross {
+  }
+
+  // .more-payments__svg
+
+  &__svg {
+    display: block;
+    fill: var(--main-blue-color);
+    transition: fill 0.15s ease;
+  }
+
+  // .more-payments__loupe
+
+  &__loupe {
+  }
+
+  // .more-payments__filter
+
+  &__filter {
+    margin: 0 4rem;
+  }
+
+  // .more-payments__content
+
+  &__content {
+  }
+
+  // .more-payments__table
+
+  &__table {
+    padding: 2rem 3rem;
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: left;
+      font-size: var(--small-text-size);
+      font-weight: 600;
+      thead {
+        tr {
+          border-bottom: var(--1px) solid var(--gray);
+        }
+      }
+      tbody {
+        tr {
+          border-bottom: var(--1px) solid var(--gray);
+          td {
+            padding: 1rem 0.625rem;
+          }
+        }
+      }
+      th,
+      td {
+        padding: 0.625rem;
+      }
+    }
+  }
+
+  // .more-payments__holders
+
+  &__holders {
+  }
+
+  // .more-payments__holder
+
+  &__holder {
+    display: flex;
+    align-items: center;
+    min-height: 3.5rem;
+    border-bottom: var(--1px) solid var(--gray);
+    padding-left: 0.625rem;
+  }
+
+  // .more-payments__button
+
+  &__export {
+    padding: 0.3125rem 1rem;
+  }
+}

@@ -5,6 +5,9 @@ import CreateApplication from '@/views/CreateApplication.vue'
 import Offers from '@/views/Offers.vue'
 import OfferArticle from '@/views/OfferArticle.vue'
 import Statistics from '@/views/Statistics.vue'
+import Finance from '@/views/Finance.vue'
+import MoreAboutPayments from '@/views/MoreAboutPayments.vue'
+import MoreAboutTransactions from '@/views/MoreAboutTransactions.vue'
 
 import DefaultLayout from '@/layouts/Default.vue'
 
@@ -42,7 +45,7 @@ const routes = [
         redirect: '/create-application',
         children: [
             {
-                path: '/create-application',
+                path: '/applications/create',
                 name: 'CreateApplication',
                 component: CreateApplication,
             }
@@ -68,7 +71,7 @@ const routes = [
         redirect: '/offer-article',
         children: [
             {
-                path: '/offer-article',
+                path: '/offers/offer',
                 name: 'OfferArticle',
                 component: OfferArticle,
             }
@@ -84,6 +87,45 @@ const routes = [
                 path: '/statistics',
                 name: 'Statistics',
                 component: Statistics,
+            }
+        ]
+    },
+    {
+        path: '/finance',
+        name: 'Finance',
+        component: DefaultLayout,
+        redirect: '/finance',
+        children: [
+            {
+                path: '/finance',
+                name: 'Finance',
+                component: Finance,
+            }
+        ]
+    },
+    {
+        path: '/transactions',
+        name: 'MoreAboutTransactions',
+        component: DefaultLayout,
+        redirect: '/transactions',
+        children: [
+            {
+                path: '/finance/transactions',
+                name: 'MoreAboutTransactions',
+                component: MoreAboutTransactions,
+            }
+        ]
+    },
+    {
+        path: '/payments',
+        name: 'MoreAboutPayments',
+        component: DefaultLayout,
+        redirect: '/payments',
+        children: [
+            {
+                path: '/finance/payments',
+                name: 'MoreAboutPayments',
+                component: MoreAboutPayments,
             }
         ]
     },

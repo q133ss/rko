@@ -10,7 +10,7 @@
         <div class="applications__link-text">Реф.Ссылки</div>
       </router-link>
       <Button class="applications__button" icon="export" yellow>Экспорт</Button>
-      <Button class="applications__button" icon="plus" to="/create-application" purple> Создать заявку </Button>
+      <Button class="applications__button" icon="plus" to="/applications/create" purple> Создать заявку </Button>
     </div>
     <div class="applications__inputs">
       <div class="applications__item">

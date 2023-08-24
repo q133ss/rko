@@ -1,0 +1,118 @@
+.finance {
+  // .finance__title
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  // .finance__prompt
+
+  &__prompt {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: var(--card-light-shadow);
+    background-color: var(--white);
+    border-radius: var(--default-radius);
+    margin-bottom: 2rem;
+
+    font-weight: 500;
+    a {
+      color: var(--main-yellow-color);
+      font-weight: 700;
+      margin-left: 0.2rem;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // .finance__prompt-icon
+
+  &__prompt-icon {
+    flex-shrink: 0;
+    margin-right: 2rem;
+  }
+
+  // .finance__prompt-cross
+
+  &__prompt-cross {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    transition: transform 0.15s ease;
+    background-color: transparent;
+    margin-left: auto;
+    &:hover {
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  // .finance__content
+
+  &__content {
+    & + & {
+      margin-top: 2rem;
+    }
+  }
+
+  // .finance__table
+
+  &__table {
+    padding: 2rem 3rem;
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: left;
+      font-size: var(--small-text-size);
+      font-weight: 600;
+      thead {
+        tr {
+          border-bottom: var(--1px) solid var(--gray);
+        }
+      }
+      tbody {
+        tr {
+          border-bottom: var(--1px) solid var(--gray);
+          td {
+            padding: 1rem 0.625rem;
+          }
+        }
+      }
+      th,
+      td {
+        padding: 0.625rem;
+      }
+    }
+  }
+
+  // .finance__holders
+
+  &__holders {
+  }
+
+  // .finance__holder
+
+  &__holder {
+    display: flex;
+    align-items: center;
+    min-height: 3.5rem;
+    border-bottom: var(--1px) solid var(--gray);
+    padding-left: 0.625rem;
+  }
+
+  // .finance__button
+
+  &__button {
+    width: 100%;
+    padding: 0.875rem 1rem;
+  }
+}

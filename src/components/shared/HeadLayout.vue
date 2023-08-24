@@ -1,6 +1,10 @@
 <template>
   <div class="layout-head" v-if="head">
-    <router-link class="layout-head__link" :to="head.link">
+    <router-link
+      class="layout-head__link"
+      :to="head.link"
+      :class="{ 'router-link-active': $route.path.includes(head.link) }"
+    >
       <SvgIcon class="layout-head__icon" :name="head.icon" v-if="head.icon" />
       <div class="layout-head__title" v-if="head.title">{{ head.title }}</div>
     </router-link>

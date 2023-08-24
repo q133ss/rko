@@ -4,7 +4,9 @@
       <div class="statistics__box">
         <div class="statistics__head statistics__head_border">
           <div class="statistics__title">Заработок</div>
-          <div class="statistics__select">за сегодня</div>
+          <div class="statistics__select">
+            <SimpleSelect :options="options" v-model="income" placeholder="Выберите дату" />
+          </div>
         </div>
         <table class="statistics__balances">
           <thead>
@@ -51,7 +53,9 @@
       <div class="statistics__box">
         <div class="statistics__head">
           <div class="statistics__title">Баланс</div>
-          <div class="statistics__select">за сегодня</div>
+          <div class="statistics__select">
+            <SimpleSelect :options="options" v-model="balance" placeholder="Выберите дату" />
+          </div>
         </div>
         <div class="statistics__chart statistics-chart">
           <div class="statistics-chart__filters">
@@ -109,6 +113,12 @@
 <script setup>
   import Chart from "@/components/shared/Chart.vue";
   import SvgIcon from "@/components/shared/SvgIcon.vue";
+  import SimpleSelect from "@/components/shared/SimpleSelect.vue";
+  import { reactive, ref } from "@vue/reactivity";
+  const options = reactive(["за сегодня", "за неделю", "за месяц", "за год"]);
+
+  const balance = ref("за сегодня");
+  const income = ref("за сегодня");
 </script>
 
 <style scoped lang="scss">

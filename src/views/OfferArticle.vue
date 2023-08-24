@@ -62,7 +62,7 @@
   import Button from "@/components/shared/Button.vue";
 
   const head = {
-    link: "/offer-article",
+    link: "/offers/offer",
     icon: "bank",
     title: "Предложения",
     text: "Открытие Банк РКО",

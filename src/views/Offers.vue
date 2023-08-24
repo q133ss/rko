@@ -36,7 +36,7 @@
       filter: "РКО",
       price: 5000,
       award: 2,
-      offerLink: "OfferArticle",
+      offerLink: "/offers/offer",
       list: [
         "<b>0 ₽</b> безлимитные рублевые платежи",
         "<b>До 2 000 000 ₽ бесплатно</b> переводы физ.лицам в месяц",

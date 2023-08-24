@@ -28,7 +28,7 @@
           <li class="nav-menu__item" v-for="link in links" :key="link.title">
             <router-link
               class="nav-menu__link"
-              :class="$route.name == link.route ? 'nav-menu__link_active' : ''"
+              :class="{ 'router-link-active': $route.path.includes(link.route) }"
               :to="link.route"
             >
               <SvgIcon class="nav-menu__link-icon" :name="link.icon" />
@@ -87,7 +87,7 @@
     { icon: "bank", route: "/offers", title: "Предложения" },
     //{ icon: "documents", route: "Home", title: "Документы" },
     { icon: "services", route: "/referrals", title: "Реферальная система" },
-    { icon: "money", route: "/", title: "Финансы" },
+    { icon: "money", route: "/finance", title: "Финансы" },
   ];
   const balance = "0";
 

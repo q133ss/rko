@@ -25,7 +25,7 @@
         </ul>
       </div>
       <div class="offer__buttons">
-        <Button class="offer__button" yellowTransparent :to="{ name: offer.offerLink }">Информация по офферу</Button>
+        <Button class="offer__button" yellowTransparent :to="offer.offerLink">Информация по офферу</Button>
         <Button class="offer__button" yellow>Оставить заявку</Button>
       </div>
     </div>

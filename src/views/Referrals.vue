@@ -10,7 +10,7 @@
         <div class="referrals__link-text">Реф.Ссылки</div>
       </router-link>
       <Button class="referrals__button" icon="export" yellow>Экспорт</Button>
-      <Button class="referrals__button" icon="plus" :to="{name: 'CreateApplication'}" purple>Создать заявку</Button>
+      <Button class="referrals__button" icon="plus" to="/applications/create" purple>Создать заявку</Button>
     </div>
     <div class="referrals__content">
       <div class="referrals__inputs">

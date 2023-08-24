@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="create-application__buttons">
-      <Button class="create-application__button" yellowTransparent :to="{ name: 'Applications' }">Назад</Button>
+      <Button class="create-application__button" yellowTransparent to="/applications">Назад</Button>
       <Button class="create-application__button" yellow>Далее</Button>
     </div>
   </div>

@@ -1,0 +1,76 @@
+<template>
+  <div class="more-payments">
+    <HeadLayout :head="head" />
+    <div class="more-payments__head">
+      <div class="more-payments__title">Подробнее о выплатах</div>
+      <div class="more-payments__buttons">
+        <div class="more-payments__search">
+          <input class="more-payments__input" type="text" />
+          <button class="more-payments__cross more-payments__button">
+            <SvgIcon class="more-payments__svg" name="cross" />
+          </button>
+          <span class="more-payments__line"></span>
+          <button class="more-payments__loupe more-payments__button">
+            <SvgIcon class="more-payments__svg" name="loupe" />
+          </button>
+        </div>
+        <button class="more-payments__filter more-payments__button">
+          <SvgIcon class="more-payments__svg" name="filter" />
+        </button>
+        <Button class="more-payments__export" icon="export" yellow>Экспорт</Button>
+      </div>
+    </div>
+    <div class="more-payments__content">
+      <div class="more-payments__table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Дата заказа выплаты</th>
+              <th>Название</th>
+              <th>Счет</th>
+              <th>К оплате</th>
+              <th>Статус</th>
+              <th>Документы</th>
+            </tr>
+          </thead>
+          <tbody v-if="!notOperations">
+            <tr>
+              <td>ID</td>
+              <td>Дата заказа выплаты</td>
+              <td>Название</td>
+              <td>Счет</td>
+              <td>К оплате</td>
+              <td>Статус</td>
+              <td>Документы</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="more-payments__holders" v-if="notOperations">
+          <div class="more-payments__holder">Нет операций по выплатам</div>
+          <div class="more-payments__holder"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+  import HeadLayout from "@/components/shared/HeadLayout.vue";
+  import Button from "@/components/shared/Button.vue";
+  import SvgIcon from "@/components/shared/SvgIcon.vue";
+  import { ref } from "@vue/reactivity";
+
+  const notOperations = ref(true);
+
+  const head = {
+    link: "/finance/payments",
+    icon: "money",
+    title: "Финансы",
+    text: "Подробнее о выплатах",
+  };
+</script>
+
+<style scoped lang="scss">
+  @import "@/assets/scss/components/_more-payments.scss";
+</style>

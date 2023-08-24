@@ -160,7 +160,6 @@
       }
     }
     &:has(.router-link-active) {
-      pointer-events: none;
       background-color: var(--white);
 
       .nav-menu__link {
@@ -170,8 +169,12 @@
         fill: var(--main-purple-color);
       }
     }
-    &:hover:not(:has(.active)) {
+    &:hover:not(:has(.router-link-active)) {
       background-color: darken(#f0f4ff, 1);
+    }
+
+    &:active:not(:has(.router-link-active)) {
+      background-color: darken(#f0f4ff, 3);
     }
   }
 
