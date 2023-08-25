@@ -78,6 +78,14 @@
     }
   }
 
+  &_gray {
+    background-color: var(--gray);
+    color: var(--main-blue-color);
+    .button__svg {
+      fill: var(--main-blue-color);
+    }
+  }
+
   &_yellow-transparent {
     background-color: transparent;
     color: var(--main-yellow-color);

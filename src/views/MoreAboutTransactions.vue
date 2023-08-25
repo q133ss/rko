@@ -2,25 +2,19 @@
   <div class="more-payments">
     <HeadLayout :head="head" />
     <div class="more-payments__head">
-      <div class="more-payments__title">Подробнее о выплатах</div>
-      <div class="more-payments__buttons">
-        <div class="more-payments__search">
-          <input class="more-payments__input" type="text" />
-          <button class="more-payments__cross more-payments__button">
-            <SvgIcon class="more-payments__svg" name="cross" />
+      <div class="more-payments__content">
+        <div class="more-payments__title">Подробнее о транзакциях</div>
+        <div class="more-payments__buttons">
+          <button class="more-payments__filter more-payments__button" @click="openFilter">
+            <SvgIcon class="more-payments__svg" name="filter" />
           </button>
-          <span class="more-payments__line"></span>
-          <button class="more-payments__loupe more-payments__button">
-            <SvgIcon class="more-payments__svg" name="loupe" />
-          </button>
+          <Button class="more-payments__export" icon="export" yellow>Экспорт</Button>
         </div>
-        <button class="more-payments__filter more-payments__button">
-          <SvgIcon class="more-payments__svg" name="filter" />
-        </button>
-        <Button class="more-payments__export" icon="export" yellow>Экспорт</Button>
       </div>
+      <MoreAboutPaymentsFilter title="Фильтр по выплатам" :showFilter="showFilter" @close-menu="openFilter" />
     </div>
-    <div class="more-payments__content">
+
+    <div class="more-payments__inner">
       <div class="more-payments__table">
         <table>
           <thead>
@@ -59,9 +53,11 @@
   import HeadLayout from "@/components/shared/HeadLayout.vue";
   import Button from "@/components/shared/Button.vue";
   import SvgIcon from "@/components/shared/SvgIcon.vue";
+  import MoreAboutPaymentsFilter from "@/components/shared/MoreAboutPaymentsFilter.vue";
   import { ref } from "@vue/reactivity";
 
   const notOperations = ref(true);
+  const showFilter = ref(true);
 
   const head = {
     link: "/finance/payments",
@@ -69,6 +65,10 @@
     title: "Финансы",
     text: "Подробнее о выплатах",
   };
+
+  function openFilter() {
+    showFilter.value = !showFilter.value;
+  }
 </script>
 
 <style scoped lang="scss">

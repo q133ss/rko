@@ -25,7 +25,7 @@
     flex: 1;
     padding: 1rem 2rem;
     overflow: auto;
-    @media (max-width: 1024px) {
+    @media (max-width: 1366px) {
       padding: 1rem;
     }
   }

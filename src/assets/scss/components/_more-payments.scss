@@ -2,15 +2,22 @@
   // .more-payments__head
 
   &__head {
+    margin-bottom: 2rem;
+    @media (max-width: 480px) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  // .more-payments__content
+
+  &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+
     @media (max-width: 768px) {
       display: block;
-    }
-    @media (max-width: 480px) {
-      margin-bottom: 0;
     }
   }
 

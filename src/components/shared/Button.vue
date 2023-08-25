@@ -7,6 +7,7 @@
       button_green: green,
       button_yellow: yellow,
       button_brown: brown,
+      button_gray: gray,
       'button_yellow-transparent': yellowTransparent,
     }"
     :to="to"
@@ -25,6 +26,7 @@
       button_green: green,
       button_yellow: yellow,
       button_brown: brown,
+      button_gray: gray,
       'button_yellow-transparent': yellowTransparent,
     }"
     v-else
@@ -61,6 +63,9 @@
       type: Boolean,
     },
     yellowTransparent: {
+      type: Boolean,
+    },
+    gray: {
       type: Boolean,
     },
   });
