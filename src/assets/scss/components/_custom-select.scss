@@ -42,6 +42,10 @@
 
     transition: background-color 0.15s ease;
 
+    &_small {
+      padding: 0.25rem 1rem;
+    }
+
     &:has(.custom-select__icon) {
       padding: 0.25rem 1rem;
     }
@@ -67,6 +71,19 @@
     background-image: url("/images/icons/arrow.svg");
 
     transition: transform 0.15s ease;
+  }
+
+  // .custom-select__custom-icon
+
+  &__custom-icon {
+    display: block;
+
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+    img {
+      display: block;
+    }
   }
 
   // .custom-select__selecteds

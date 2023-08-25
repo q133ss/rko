@@ -14,7 +14,7 @@
     </div>
     <div class="applications__inputs">
       <div class="applications__item">
-        <CustomSelect title="Даты" placeholder="2023-07-09 - 2023-08-09" :sublistItems="dates" />
+        <DateSelect />
       </div>
       <div class="applications__item">
         <CustomInput title="ИНН" placeholder="Введите ИНН" :sublistItems="dates" />
@@ -23,7 +23,12 @@
         <CustomInput title="Телефон" placeholder="Введите телефон" :sublistItems="dates" />
       </div>
       <div class="applications__item">
-        <CustomSelect title="Офферы" placeholder="Выберите оффер" :sublistItems="offers" />
+        <CustomSelect
+          title="Офферы"
+          placeholder="Выберите оффер"
+          icon="/images/icons/loupe.svg"
+          :sublistItems="offers"
+        />
       </div>
       <div class="applications__item">
         <CustomSelect title="Статус" placeholder="Выберите статус" :sublistItems="status" arrow />
@@ -87,6 +92,7 @@
   import Button from "@/components/shared/Button.vue";
   import CustomSelect from "@/components/shared/CustomSelect.vue";
   import CustomInput from "@/components/shared/CustomInput.vue";
+  import DateSelect from "@/components/shared/DateSelect.vue";
 
   const showSelect = false;
   const hasPoint = false;
@@ -113,7 +119,6 @@
       value: "date-5",
     },
   ];
-
   const status = [
     {
       title: "Статус 1 (Инфо)",

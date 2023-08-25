@@ -6,6 +6,9 @@
       .multiselect__tags {
         border-radius: var(--default-radius);
       }
+      .multiselect__placeholder {
+        display: block;
+      }
     }
   }
   .multiselect__placeholder {

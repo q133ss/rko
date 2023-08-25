@@ -1,9 +1,12 @@
 <template>
   <div class="custom-select" :class="{ 'custom-select_open': showSubmenu && arrow }">
     <div class="custom-select__title">{{ title }}</div>
-    <button class="custom-select__button" @click="toggleSubmenu">
+    <button class="custom-select__button" :class="{ 'custom-select__button_small': icon }" @click="toggleSubmenu">
       {{ placeholder }}
       <span class="custom-select__icon" v-if="arrow"></span>
+      <span class="custom-select__custom-icon" v-if="icon">
+        <img :src="icon" alt="Иконка" aria-hidden="true" />
+      </span>
     </button>
     <div class="custom-select__selecteds" v-if="selecteds.length > 0">
       <div class="custom-select__selected" v-for="(select, index) in selecteds" :key="index">
@@ -29,6 +32,7 @@
   const props = defineProps({
     title: String,
     placeholder: String,
+    icon: String,
     sublistItems: Array,
     arrow: Boolean,
   });

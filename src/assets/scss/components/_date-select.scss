@@ -1,0 +1,143 @@
+.date-select {
+  // .date-select__title
+
+  &__title {
+    color: var(--main-blue-color);
+    font-family: var(--default-font);
+    font-size: var(--small-text-size);
+    font-weight: 500;
+
+    margin-bottom: 0.25rem;
+    padding-left: 1rem;
+  }
+
+  // .date-select__button
+
+  &__button {
+    cursor: pointer;
+    outline: none;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-shadow: 0 0.3125rem 1.25rem 0 #0000000d;
+    border: var(--1px) solid var(--white);
+    background-color: var(--main-light-gray-color-2);
+    border-radius: 0.3125rem;
+
+    padding: 0.25rem 1rem;
+
+    text-align: left;
+    font-size: var(--small-text-size);
+    font-weight: 500;
+    font-family: var(--default-font);
+
+    transition: background-color 0.15s ease;
+
+    &:has(.custom-select__icon) {
+      padding: 0.25rem 1rem;
+    }
+
+    &:hover {
+      background-color: var(--main-light-gray-color-hover);
+    }
+
+    &:active {
+      background-color: var(--main-light-gray-color-active);
+    }
+  }
+
+  // .date-select__icon
+
+  &__icon {
+    display: block;
+
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+
+    background-image: url("/images/icons/calendar.svg");
+  }
+
+  // .date-select__dropdown
+
+  &__dropdown {
+    display: flex;
+    position: absolute;
+    background-color: var(--white);
+    border-radius: var(--default-radius);
+    border: var(--1px) solid var(--white);
+    overflow-y: auto;
+    z-index: 1;
+    @media (max-width: 480px) {
+      display: block;
+    }
+  }
+
+  // .date-select__menu
+
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: sticky;
+    top: 0;
+  }
+
+  // .date-select__item
+
+  &__item {
+  }
+
+  // .date-select__item-btn
+
+  &__item-btn {
+    cursor: pointer;
+    border: none;
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    &:hover {
+      background: #f5f5f5;
+    }
+    &:active {
+      background: darken(#f5f5f5, 5);
+    }
+  }
+
+  // .date-select__calendar
+  // .date-select__buttons
+
+  &__calendar {
+    padding: 1rem;
+    .vc-bordered {
+      border: none;
+    }
+  }
+
+  // .date-select__buttons
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    @media (max-width: 480px) {
+      justify-content: space-between;
+    }
+  }
+
+  // .date-select__btn
+
+  &__btn {
+    padding: 0.625rem 1rem;
+    &:not(:last-child) {
+      margin-right: 3rem;
+      @media (max-width: 480px) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

@@ -4,6 +4,10 @@
   padding-bottom: 1rem;
   border-bottom: var(--1px) solid var(--gray);
   margin-bottom: 2rem;
+  @media (max-width: 480px) {
+    display: block;
+  }
+
   // .layout-head__link
 
   &__link {
@@ -31,6 +35,9 @@
   &__title {
     font-weight: 600;
     margin-right: 2rem;
+    @media (max-width: 480px) {
+      margin-right: 0;
+    }
   }
 
   // .layout-head__text
@@ -39,5 +46,8 @@
     color: var(--main-opacity-blue-color);
     font-size: 14px;
     font-weight: 600;
+    @media (max-width: 480px) {
+      margin-top: 1rem;
+    }
   }
 }

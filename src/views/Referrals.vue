@@ -15,13 +15,18 @@
     <div class="referrals__content">
       <div class="referrals__inputs">
         <div class="referrals__item">
-          <CustomSelect title="Даты" placeholder="2023-07-09 - 2023-08-09" :sublistItems="dates" />
+          <DateSelect />
         </div>
         <div class="referrals__item">
-          <CustomSelect title="Офферы" placeholder="Выберите оффер" :sublistItems="offers" />
+          <CustomSelect
+            title="Офферы"
+            placeholder="Выберите оффер"
+            icon="/images/icons/loupe.svg"
+            :sublistItems="offers"
+          />
         </div>
         <div class="referrals__item">
-          <CustomSelect title="Статус" placeholder="Выберите статус" :sublistItems="status" arrow />
+          <CustomSelect title="Статус (Конверсии)" placeholder="Выберите статус" :sublistItems="status" arrow />
         </div>
       </div>
       <div class="referrals__apply">
@@ -73,6 +78,7 @@
   import SvgIcon from "@/components/shared/SvgIcon.vue";
   import Button from "@/components/shared/Button.vue";
   import CustomSelect from "@/components/shared/CustomSelect.vue";
+  import DateSelect from "@/components/shared/DateSelect.vue";
 
   const showSelect = false;
   const hasPoint = false;

@@ -49,7 +49,7 @@
         </table>
       </div>
     </div>
-    <div class="statistics__item">
+    <div class="statistics__item statistics__item_first">
       <div class="statistics__box">
         <div class="statistics__head">
           <div class="statistics__title">Баланс</div>
@@ -75,36 +75,38 @@
             <SvgIcon class="statistics__svg" name="prime-link" />
           </router-link>
         </div>
-        <table class="statistics__operations">
-          <thead>
-            <tr>
-              <th>Дата</th>
-              <th>Номер</th>
-              <th>Статус</th>
-              <th>Оффер</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2023-07-09</td>
-              <td>174</td>
-              <td>Отправлен</td>
-              <td>(5) Райфайзен</td>
-            </tr>
-            <tr>
-              <td>2023-07-09</td>
-              <td>237</td>
-              <td>Отклонён</td>
-              <td>(1) МТС Банк RKO</td>
-            </tr>
-            <tr>
-              <td>2023-07-09</td>
-              <td>187</td>
-              <td>Выполнен</td>
-              <td>(3) Локо Банк RKO</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="statistics__auto-scroll">
+          <table class="statistics__operations">
+            <thead>
+              <tr>
+                <th>Дата</th>
+                <th>Номер</th>
+                <th>Статус</th>
+                <th>Оффер</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023-07-09</td>
+                <td>174</td>
+                <td>Отправлен</td>
+                <td>(5) Райфайзен</td>
+              </tr>
+              <tr>
+                <td>2023-07-09</td>
+                <td>237</td>
+                <td>Отклонён</td>
+                <td>(1) МТС Банк RKO</td>
+              </tr>
+              <tr>
+                <td>2023-07-09</td>
+                <td>187</td>
+                <td>Выполнен</td>
+                <td>(3) Локо Банк RKO</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

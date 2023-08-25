@@ -17,11 +17,14 @@
 
 <style scoped lang="scss">
   .wrap {
-    display: flex;
+    @media (min-width: 1025px) {
+      display: flex;
+    }
   }
   .inner {
     flex: 1;
     padding: 1rem 2rem;
+    overflow: auto;
     @media (max-width: 1024px) {
       padding: 1rem;
     }

@@ -2,8 +2,10 @@
   <div class="create-application">
     <div class="create-application__head">
       <div class="create-application__page">
-        <SvgIcon class="create-application__icon" name="form" />
-        <div class="create-application__descr">Создать заявку</div>
+        <div class="create-application__left">
+          <SvgIcon class="create-application__icon" name="form" />
+          <div class="create-application__descr">Создать заявку</div>
+        </div>
         <div class="create-application__text">Введите данные клиента</div>
       </div>
       <div class="create-application__title">Введите данные клиента</div>
