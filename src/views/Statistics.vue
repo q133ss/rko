@@ -124,5 +124,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/scss/components/_statistics.scss";
+  @import "@/assets/scss/pages/_statistics.scss";
 </style>

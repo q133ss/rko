@@ -17,6 +17,7 @@
 
 <style scoped lang="scss">
   .wrap {
+    background-color: var(--main-bg-color);
     @media (min-width: 1025px) {
       display: flex;
     }

@@ -9,12 +9,28 @@ import Finance from '@/views/Finance.vue'
 import MoreAboutPayments from '@/views/MoreAboutPayments.vue'
 import MoreAboutTransactions from '@/views/MoreAboutTransactions.vue'
 
+import LandingPage from '@/views/LandingPage.vue'
+
 import DefaultLayout from '@/layouts/Default.vue'
+import LandingLayout from '@/layouts/LandingLayout.vue'
 
 const routes = [
     {
         path: '/',
-        name: 'Home',
+        name: 'Landing',
+        component: LandingLayout,
+        redirect: '/',
+        children: [
+            {
+                path: '/',
+                name: 'Landing',
+                component: LandingPage,
+            }
+        ]
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
         component: DefaultLayout,
         redirect: '/profile',
         children: [
@@ -26,7 +42,7 @@ const routes = [
         ]
     },
     {
-        path: '/',
+        path: '/referrals',
         name: 'Referrals',
         component: DefaultLayout,
         redirect: '/referrals',

@@ -85,5 +85,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/scss/components/_finance.scss";
+  @import "@/assets/scss/pages/_finance.scss";
 </style>

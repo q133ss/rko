@@ -114,5 +114,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/scss/components/_cabinet.scss";
+  @import "@/assets/scss/pages/_cabinet.scss";
 </style>

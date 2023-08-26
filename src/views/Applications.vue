@@ -170,5 +170,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/scss/components/_applications.scss";
+  @import "@/assets/scss/pages/_applications.scss";
 </style>

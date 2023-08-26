@@ -63,5 +63,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/scss/components/_offers.scss";
+  @import "@/assets/scss/pages/_offers.scss";
 </style>

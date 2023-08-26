@@ -157,5 +157,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/scss/components/_referrals.scss";
+  @import "@/assets/scss/pages/_referrals.scss";
 </style>

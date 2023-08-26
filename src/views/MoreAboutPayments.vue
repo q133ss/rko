@@ -82,5 +82,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import "@/assets/scss/components/_more-payments.scss";
+  @import "@/assets/scss/pages/_more-payments.scss";
 </style>
