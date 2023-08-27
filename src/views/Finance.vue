@@ -3,10 +3,10 @@
     <HeadLayout :head="head" />
     <div class="finance__title">Выплаты</div>
     <div class="finance__prompt" v-if="showPrompt">
-      <img class="finance__prompt-icon" src="/images/icons/oval-info.svg" alt="" />
+      <img class="finance__prompt-icon" src="./images/icons/oval-info.svg" alt="" />
       Необходимо добавить <router-link to="/profile"> платежную информацию</router-link>
       <button class="finance__prompt-cross" @click="showPrompt = !showPrompt">
-        <img class="finance__prompt-icon" src="/images/icons/cross.svg" alt="" />
+        <img class="finance__prompt-icon" src="./images/icons/cross.svg" alt="" />
       </button>
     </div>
     <div class="finance__content">

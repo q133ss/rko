@@ -31,7 +31,7 @@
 
   const offers = [
     {
-      logo: "/images/logos/logo-bank-open.svg",
+      logo: "./images/logos/logo-bank-open.svg",
       name: "Открытие Банк",
       filter: "РКО",
       price: 5000,
@@ -46,7 +46,7 @@
       ],
     },
     {
-      logo: "/images/logos/mts-bank-logo.jpg",
+      logo: "./images/logos/mts-bank-logo.jpg",
       name: "МТС Банк",
       filter: "РКО",
       price: 2400,

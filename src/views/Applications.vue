@@ -26,7 +26,7 @@
         <CustomSelect
           title="Офферы"
           placeholder="Выберите оффер"
-          icon="/images/icons/loupe.svg"
+          icon="./images/icons/loupe.svg"
           :sublistItems="offers"
         />
       </div>

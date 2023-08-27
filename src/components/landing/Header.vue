@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header__wrap">
         <div class="header__logo">
-          <img src="/images/landing-logo.svg" alt="Логотип" />
+          <img src="./images/landing-logo.svg" alt="Логотип" />
         </div>
         <div class="header__menu" :class="{ header__menu_open: isOpenMenu }">
           <nav class="header__nav">

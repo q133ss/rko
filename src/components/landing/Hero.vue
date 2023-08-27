@@ -2,10 +2,10 @@
   <div class="hero">
     <div class="hero__decorations">
       <div class="hero__decorate hero__decorate_1">
-        <img class="hero__decorate-img" src="/images/landing/hero-decorate-1.svg" alt="Декорация" aria-hidden="true" />
+        <img class="hero__decorate-img" src="./images/landing/hero-decorate-1.svg" alt="Декорация" aria-hidden="true" />
       </div>
       <div class="hero__decorate hero__decorate_2">
-        <img class="hero__decorate-img" src="/images/landing/hero-decorate-2.svg" alt="Декорация" aria-hidden="true" />
+        <img class="hero__decorate-img" src="./images/landing/hero-decorate-2.svg" alt="Декорация" aria-hidden="true" />
       </div>
     </div>
     <div class="container">
@@ -16,7 +16,7 @@
           <div class="hero__points">
             <div class="hero__point">
               <div class="hero__point-img">
-                <img src="/images/landing/document.svg" alt="Иконка" aria-hidden="true" />
+                <img src="./images/landing/document.svg" alt="Иконка" aria-hidden="true" />
               </div>
               <div class="hero__point-text">
                 <div class="hero__point-head">Offer list</div>
@@ -25,7 +25,7 @@
             </div>
             <div class="hero__point">
               <div class="hero__point-img">
-                <img src="/images/landing/look.svg" alt="Иконка" aria-hidden="true" />
+                <img src="./images/landing/look.svg" alt="Иконка" aria-hidden="true" />
               </div>
               <div class="hero__point-text">
                 <div class="hero__point-head">Join</div>
@@ -39,7 +39,7 @@
         </div>
         <div class="hero__picture">
           <div class="hero__inner">
-            <img src="/images/landing/hero-img.png" alt="Интерфейс личного кабинета" class="hero__img" />
+            <img src="./images/landing/hero-img.png" alt="Интерфейс личного кабинета" class="hero__img" />
           </div>
         </div>
       </div>
