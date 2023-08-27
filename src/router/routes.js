@@ -10,11 +10,26 @@ import MoreAboutPayments from '@/views/MoreAboutPayments.vue'
 import MoreAboutTransactions from '@/views/MoreAboutTransactions.vue'
 
 import LandingPage from '@/views/LandingPage.vue'
+import Landing404 from '@/views/Landing404.vue'
 
 import DefaultLayout from '@/layouts/Default.vue'
 import LandingLayout from '@/layouts/LandingLayout.vue'
+import Landing404Layout from '@/layouts/Landing404Layout.vue'
 
 const routes = [
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'Landing404',
+        component: Landing404Layout,
+        redirect: '/404',
+        children: [
+            {
+                path: '/404',
+                name: 'Landing404',
+                component: Landing404,
+            }
+        ]
+    },
     {
         path: '/',
         name: 'Landing',

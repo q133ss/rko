@@ -1,0 +1,118 @@
+.landing-points {
+  position: relative;
+  padding: 7.5rem 0;
+
+  background-image: url("/images/landing/points-img.svg");
+  background-repeat: no-repeat;
+  background-position: 78% 3%;
+
+  @media (max-width: 1024px) {
+    background-position: 120% 3%;
+    padding: 6rem 0;
+  }
+
+  @media (max-width: 768px) {
+    background-image: none;
+    padding: 3rem 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 0;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    background-repeat: no-repeat;
+    @media (max-width: 1024px) {
+      opacity: 0.4;
+    }
+    @media (max-width: 820px) {
+      display: none;
+    }
+  }
+
+  &::before {
+    bottom: 0;
+    width: 28.5rem;
+    height: 30.5rem;
+    background-image: url("/images/landing/decorate-2.svg");
+  }
+  &::after {
+    bottom: 3rem;
+    width: 25.875rem;
+    height: 28rem;
+    background-image: url("/images/landing/decorate-1.svg");
+  }
+
+  // .landing-points__wrapper
+
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  // .landing-points__title
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  // .landing-points__items
+
+  &__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  // .landing-points__item
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    &:nth-child(2) {
+      @media (min-width: 481px) {
+        padding-left: 7%;
+      }
+    }
+    &:nth-child(3) {
+      @media (min-width: 481px) {
+        padding-left: 14%;
+      }
+    }
+  }
+
+  // .landing-points__number
+
+  &__number {
+    font-family: var(--poppins-font);
+    font-size: 6.25rem;
+    font-weight: 600;
+    color: #4e5ffd75;
+    margin-right: 1.5rem;
+    @media (max-width: 480px) {
+      font-size: 4rem;
+      min-width: 3.5rem;
+      margin-right: 1rem;
+    }
+  }
+
+  // .landing-points__text
+
+  &__text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    max-width: 31.5rem;
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
+}

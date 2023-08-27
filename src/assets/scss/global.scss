@@ -31,4 +31,12 @@ button {
   padding: 0 1rem;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @import url("./components/_default-input.scss");

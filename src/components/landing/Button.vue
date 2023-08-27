@@ -1,5 +1,12 @@
 <template>
-  <button class="landing-button" :class="{ 'landing-button_success': active }" @click="toggleActive">
+  <router-link class="landing-button" :class="{ 'landing-button_success': active }" :to="to" v-if="to">
+    <div class="landing-button__decorate">
+      <div class="landing-button__text">
+        <slot />
+      </div>
+    </div>
+  </router-link>
+  <button class="landing-button" :class="{ 'landing-button_success': active }" @click="toggleActive" v-else>
     <div class="landing-button__decorate">
       <div class="landing-button__text">
         <slot />
@@ -12,6 +19,10 @@
   import { ref } from "@vue/reactivity";
 
   const active = ref(false);
+
+  const props = defineProps({
+    to: String,
+  });
 
   function toggleActive() {
     if (active) return; // заглушка удалить (показывает активное состояние)

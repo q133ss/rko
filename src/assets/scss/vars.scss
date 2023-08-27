@@ -1,5 +1,7 @@
 :root {
   --default-font: "Montserrat", sans-serif;
+  --syne-font: "Syne", sans-serif;
+  --poppins-font: 'Poppins', sans-serif;;
   --black: #000000;
   --white: #ffffff;
   --gray: #dddddd;
@@ -24,11 +26,24 @@
   --main-yellow-color: #ffb444;
   --main-brown-color: #c6b499;
 
-  --landing-white: #f4f4f4;
   --landing-blue: #3300ff;
   --landing-gray: #dbe5ff;
+  --landing-light-blue: #79bfff;
   --landing-black-opacity: rgba(0, 0, 0, 0.2);
   --landing-gray-opacity: rgba(189, 192, 232, 0.58);
+  --landing-title-border-color: #5b69fa;
+
+  --landing-title-size-desctop: 2.625rem;
+  --landing-title-size-tablet: 2rem;
+  --landing-title-size-mobile: 1.5rem;
+
+  --landing-descr-size-desctop: 1.25rem;
+  --landing-descr-size-tablet: 1rem;
+  --landing-descr-size-mobile: 0.875rem;
+
+  --landing-card-border-color: #c0cfff;
+  --landing-card-shadow: 0.25rem -0.25rem 1.875rem 0 rgba(0, 0, 0, 0.1) inset, -0.25rem 0.25rem 1.875rem 0 #fff inset,
+    0 0.625rem 2.5rem 0 rgba(0, 0, 0, 0.1), 0 -0.625rem 1.25rem 0 #fff;
 
   --default-shadow: 0.1875rem 0.1875rem 0.6875rem 0 rgba(0, 0, 0, 0.04),
     -0.125rem -0.125rem 0.5rem 0 rgba(255, 255, 255, 0.64);

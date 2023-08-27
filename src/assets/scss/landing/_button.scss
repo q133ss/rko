@@ -1,4 +1,6 @@
 .landing-button {
+  display: inline-block;
+  text-decoration: none;
   position: relative;
   cursor: pointer;
   background-color: transparent;
@@ -73,11 +75,11 @@
     line-height: 1;
     background-position: 100%;
 
-    color: var(--landing-white);
-    font-size: 1.25rem;
-    font-weight: 600;
-
     transition: background-position 0.6s ease, transform 0.15s ease;
+
+    @media (max-width: 480px) {
+      padding: 1rem 2rem;
+    }
 
     &::after {
       opacity: 0;
@@ -98,5 +100,13 @@
   &__text {
     position: relative;
     z-index: 1;
+
+    color: var(--main-bg-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ header_higlight: highliteHeader }">
     <div class="container">
       <div class="header__wrap">
         <div class="header__logo">
@@ -34,8 +34,10 @@
 <script setup>
   import SvgIcon from "@/components/shared/SvgIcon.vue";
   import { ref } from "@vue/reactivity";
+  import { onMounted } from "@vue/runtime-core";
 
   const isOpenMenu = ref(false);
+  const highliteHeader = ref(false);
 
   const header = [
     {
@@ -58,10 +60,23 @@
 
   function toggleMenu() {
     isOpenMenu.value = !isOpenMenu.value;
+    document.body.classList.toggle("hidden");
   }
   function closeMenu() {
     isOpenMenu.value = false;
+    document.body.classList.remove("hidden");
   }
+
+  function addHeaderHighlight() {
+    console.log(window);
+    if (window.scrollY > 0) {
+      highliteHeader.value = true;
+    } else highliteHeader.value = false;
+  }
+
+  onMounted(() => {
+    document.addEventListener("scroll", addHeaderHighlight);
+  });
 </script>
 
 <style scoped lang="scss">

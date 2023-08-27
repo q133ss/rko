@@ -1,0 +1,109 @@
+.landing-banner {
+  padding: 4rem 0;
+
+  @media (max-width: 480px) {
+    padding: 2rem 0;
+  }
+  // .landing-banner__wrapper
+
+  &__wrapper {
+    border-radius: 2rem;
+    background-image: url("/images/landing/banner-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    padding: 1.5rem 2rem;
+    @media (max-width: 480px) {
+      padding: 1rem;
+    }
+  }
+
+  // .landing-banner__content
+
+  &__content {
+    padding-right: 3rem;
+    width: 61%;
+    @media (max-width: 768px) {
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+
+  // .landing-banner__head
+
+  &__head {
+    display: flex;
+    align-items: center;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.625rem 0;
+
+    span {
+      margin-right: 3rem;
+    }
+
+    img {
+      margin-right: 0.3125rem;
+    }
+  }
+
+  // .landing-banner__title
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
+
+    span {
+      font-family: var(--syne-font);
+    }
+  }
+
+  // .landing-banner__descr
+
+  &__descr {
+    font-size: var(--landing-descr-size-desctop);
+    font-weight: 600;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: var(--landing-descr-size-tablet);
+    }
+  }
+
+  // .landing-banner__button
+
+  &__button {
+    &:deep(.landing-button__text) {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+  }
+
+  // .landing-banner__picture
+
+  &__picture {
+    width: 39%;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  // .landing-banner__img
+
+  &__img {
+    img {
+      display: block;
+      margin-top: -23%;
+      margin-bottom: -13%;
+      @media (max-width: 1024px) {
+        max-width: 100%;
+      }
+    }
+  }
+}
