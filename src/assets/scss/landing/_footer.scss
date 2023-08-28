@@ -1,0 +1,163 @@
+.footer {
+  padding: 4rem 0 2rem 0;
+  background-color: var(--landing-gray);
+  // .footer__wrapper
+
+  &__wrapper {
+  }
+
+  // .footer__head
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // .footer__logo
+
+  &__logo {
+    img {
+      display: block;
+    }
+  }
+
+  // .footer__nav
+
+  &__nav {
+  }
+
+  // .footer__list
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  // .footer__item
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
+
+  // .footer__link
+
+  &__link {
+    color: var(--main-blue-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      text-decoration: underline;
+      color: var(--landing-blue);
+    }
+  }
+
+  // .footer__up
+
+  &__up {
+  }
+
+  // .footer__back-to-top
+
+  &__back-to-top {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    transition: transform 0.15s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(1);
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  // .footer__info
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+
+  // .footer__address
+
+  &__address {
+  }
+
+  // .footer__city
+
+  &__city {
+    max-width: 8.875rem;
+    font-size: 0.875rem;
+    margin-bottom: 0.625rem;
+  }
+
+  // .footer__number
+
+  &__number {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--main-blue-color);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // .footer__time
+
+  &__time {
+  }
+
+  // .footer__social
+
+  &__social {
+  }
+
+  // .footer__social-text
+
+  &__social-text {
+  }
+
+  // .footer__social-link
+
+  &__social-link {
+  }
+
+  // .footer__dev-by
+
+  &__dev-by {
+  }
+
+  // .footer__footer
+
+  &__footer {
+  }
+
+  // .footer__potected
+
+  &__potected {
+  }
+
+  // .footer__policy
+
+  &__policy {
+  }
+}

@@ -1,7 +1,7 @@
 :root {
   --default-font: "Montserrat", sans-serif;
   --syne-font: "Syne", sans-serif;
-  --poppins-font: 'Poppins', sans-serif;;
+  --poppins-font: "Poppins", sans-serif;
   --black: #000000;
   --white: #ffffff;
   --gray: #dddddd;
@@ -32,6 +32,10 @@
   --landing-black-opacity: rgba(0, 0, 0, 0.2);
   --landing-gray-opacity: rgba(189, 192, 232, 0.58);
   --landing-title-border-color: #5b69fa;
+  --landing-input-color: #737477;
+  --landing-input-bg: #e8eeff;
+  --landing-input-bg-dark: #dee6ff;
+  --landing-input-border: #fefefe;
 
   --landing-title-size-desctop: 2.625rem;
   --landing-title-size-tablet: 2rem;

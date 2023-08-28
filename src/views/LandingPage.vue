@@ -4,6 +4,8 @@
   <Partners />
   <Banner />
   <Points />
+  <Form />
+  <Footer />
 </template>
 
 <script setup>
@@ -12,8 +14,6 @@
   import Partners from "@/components/landing/Partners.vue";
   import Banner from "@/components/landing/Banner.vue";
   import Points from "@/components/landing/Points.vue";
+  import Form from "@/components/landing/Form.vue";
+  import Footer from "@/components/landing/Footer.vue";
 </script>
-
-<style scoped lang="scss">
-  @import "@/assets/scss/landing/_hero.scss";
-</style>

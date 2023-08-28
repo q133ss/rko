@@ -3,7 +3,7 @@
     <div class="nav-menu__box">
       <div class="nav-menu__wrap">
         <div class="nav-menu__logo">
-          <img src="./images/logo.svg" alt="Логотип RKO Group" />
+          <img src="images/logo.svg" alt="Логотип RKO Group" />
         </div>
         <div class="nav-menu__info">
           <div class="nav-menu__head">
@@ -16,7 +16,7 @@
               <SvgIcon class="nav-menu__icon" name="edit-user" />
             </router-link>
             <div class="nav-menu__photo">
-              <img class="nav-menu__photo-img" src="./images/avatar.jpg" :alt="`Аватар ${data.name}`" />
+              <img class="nav-menu__photo-img" src="images/avatar.jpg" :alt="`Аватар ${data.name}`" />
             </div>
             <button class="nav-menu__button nav-menu__log-out">
               <SvgIcon class="nav-menu__icon" name="logout" />

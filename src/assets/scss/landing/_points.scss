@@ -2,7 +2,7 @@
   position: relative;
   padding: 7.5rem 0;
 
-  background-image: url("./images/landing/points-img.svg");
+  background-image: url("/images/landing/points-img.svg");
   background-repeat: no-repeat;
   background-position: 78% 3%;
 
@@ -38,13 +38,13 @@
     bottom: 0;
     width: 28.5rem;
     height: 30.5rem;
-    background-image: url("./images/landing/decorate-2.svg");
+    background-image: url("/images/landing/decorate-2.svg");
   }
   &::after {
     bottom: 3rem;
     width: 25.875rem;
     height: 28rem;
-    background-image: url("./images/landing/decorate-1.svg");
+    background-image: url("/images/landing/decorate-1.svg");
   }
 
   // .landing-points__wrapper

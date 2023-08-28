@@ -6,7 +6,7 @@
         <div class="offer-article__box">
           <div class="offer-article__top">
             <div class="offer-article__logo">
-              <img src="./images/logos/logo-bank-open.svg" alt="" class="offer-article__img" />
+              <img src="images/logos/logo-bank-open.svg" alt="" class="offer-article__img" />
             </div>
             <div class="offer-article__status">
               <div
@@ -70,7 +70,7 @@
 
   const offer = {
     status: true,
-    logo: "./images/logos/logo-bank-open.svg",
+    logo: "images/logos/logo-bank-open.svg",
     name: "Открытие Банк",
     id: 2,
     date: "16.12.2022",

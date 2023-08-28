@@ -2,7 +2,7 @@
   <div class="landing-404">
     <div class="landing-404__content">
       <div class="landing-404__logo">
-        <img src="./images/landing-logo.svg" alt="" />
+        <img src="images/landing-logo.svg" alt="" />
       </div>
       <div class="landing-404__number">404</div>
       <div class="landing-404__descr">Страница <span>не найдена!</span></div>
@@ -48,7 +48,7 @@
       bottom: 0;
       width: 37rem;
       height: 44rem;
-      background-image: url("./images/landing/404-bottom.svg");
+      background-image: url("images/landing/404-bottom.svg");
       @media (max-width: 768px) {
         width: 27rem;
         height: 34rem;
@@ -63,7 +63,7 @@
       right: -0.5rem;
       width: 39rem;
       height: 45.125rem;
-      background-image: url("./images/landing/404-top.svg");
+      background-image: url("images/landing/404-top.svg");
       @media (max-width: 768px) {
         width: 29rem;
         height: 35.125rem;
