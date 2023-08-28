@@ -3,7 +3,7 @@
     <div class="cabinet__user">
       <div class="cabinet__box cabinet__box_user">
         <div class="cabinet__photo">
-          <img class="cabinet__img" src="./images/big-photo.jpg" alt="Степанов Олег Александрович" />
+          <img class="cabinet__img" src="/images/big-photo.jpg" alt="Степанов Олег Александрович" />
           <Button class="cabinet__upload" icon="picture" purple>Изменить фото</Button>
         </div>
 

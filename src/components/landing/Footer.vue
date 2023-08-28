@@ -4,7 +4,7 @@
       <div class="footer__wrapper">
         <div class="footer__head">
           <div class="footer__logo">
-            <img src="images/landing-logo.svg" alt="Логотип RKO сервис" />
+            <img src="/images/landing-logo.svg" alt="Логотип RKO сервис" />
           </div>
           <nav class="footer__nav">
             <ul class="footer__list">
@@ -24,7 +24,7 @@
           </nav>
           <div class="footer__up">
             <button class="footer__back-to-top" @click="scrollToTop">
-              <img src="images/landing/up-button.svg" alt="Иконка вверх траницы" />
+              <img src="/images/landing/up-button.svg" alt="Иконка вверх траницы" />
             </button>
           </div>
         </div>
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="footer__dev-by">
-            <img src="images/landing/mbc-logo.svg" alt="Разработка компании MBC" />
+            <img src="/images/landing/mbc-logo.svg" alt="Разработка компании MBC" />
           </div>
         </div>
         <div class="footer__footer">

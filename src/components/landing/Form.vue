@@ -27,7 +27,7 @@
               </div>
             </div>
             <div class="landing-form__button">
-              <Button>Отправить</Button>
+              <Button @click.prevent="$emit('open-modal')">Отправить</Button>
             </div>
           </div>
         </form>

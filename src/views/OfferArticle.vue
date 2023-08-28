@@ -6,7 +6,7 @@
         <div class="offer-article__box">
           <div class="offer-article__top">
             <div class="offer-article__logo">
-              <img src="images/logos/logo-bank-open.svg" alt="" class="offer-article__img" />
+              <img src="/images/logos/logo-bank-open.svg" alt="" class="offer-article__img" />
             </div>
             <div class="offer-article__status">
               <div

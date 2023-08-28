@@ -2,7 +2,7 @@
   <div class="landing-404">
     <div class="landing-404__content">
       <div class="landing-404__logo">
-        <img src="images/landing-logo.svg" alt="" />
+        <img src="/images/landing-logo.svg" alt="" />
       </div>
       <div class="landing-404__number">404</div>
       <div class="landing-404__descr">Страница <span>не найдена!</span></div>

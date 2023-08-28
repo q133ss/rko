@@ -12,7 +12,7 @@
           <CustomSelect
             title="Метод оплаты"
             placeholder="Выберите метод оплаты"
-            icon="./images/icons/loupe.svg"
+            icon="/images/icons/loupe.svg"
             :sublistItems="offers"
           />
         </div>

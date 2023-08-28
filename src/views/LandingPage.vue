@@ -4,8 +4,12 @@
   <Partners />
   <Banner />
   <Points />
-  <Form />
+  <Form @open-modal="openModal" />
   <Footer />
+  <FixedSocials />
+  <Modal @close="closeModal" :show="showModal">
+    <SendSuccess @close="closeModal" />
+  </Modal>
 </template>
 
 <script setup>
@@ -16,4 +20,18 @@
   import Points from "@/components/landing/Points.vue";
   import Form from "@/components/landing/Form.vue";
   import Footer from "@/components/landing/Footer.vue";
+  import FixedSocials from "@/components/landing/FixedSocials.vue";
+  import Modal from "@/components/landing/Modal.vue";
+  import SendSuccess from "@/components/landing/SendSuccess.vue";
+  import { ref } from "@vue/reactivity";
+
+  const showModal = ref(false);
+
+  function closeModal() {
+    showModal.value = false;
+  }
+  
+  function openModal() {
+    showModal.value = true;
+  }
 </script>

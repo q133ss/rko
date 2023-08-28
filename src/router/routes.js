@@ -11,16 +11,21 @@ import MoreAboutTransactions from '@/views/MoreAboutTransactions.vue'
 
 import LandingPage from '@/views/LandingPage.vue'
 import Landing404 from '@/views/Landing404.vue'
+import Login from '@/views/LandingAuthLogin.vue'
+import Registration from '@/views/LandingAuthRegistration.vue'
+import ForgotPass from '@/views/LandingAuthForgotPass.vue'
+import ResetPass from '@/views/LandingAuthResetPass.vue'
 
 import DefaultLayout from '@/layouts/Default.vue'
 import LandingLayout from '@/layouts/LandingLayout.vue'
-import Landing404Layout from '@/layouts/Landing404Layout.vue'
+import ClearLayout from '@/layouts/ClearLayout.vue'
+import AuthLayout from '@/layouts/AuthLayout.vue'
 
 const routes = [
     {
         path: '/:pathMatch(.*)*',
         name: 'Landing404',
-        component: Landing404Layout,
+        component: ClearLayout,
         redirect: '/404',
         children: [
             {
@@ -40,6 +45,58 @@ const routes = [
                 path: '/',
                 name: 'Landing',
                 component: LandingPage,
+            }
+        ]
+    },
+    {
+        path: '/auth',
+        name: 'Auth',
+        component: AuthLayout,
+        redirect: '/auth/login',
+        children: [
+            {
+                path: '/auth/login',
+                name: 'Auth',
+                component: Login,
+            }
+        ]
+    },
+    {
+        path: '/auth/registration',
+        name: 'Registration',
+        component: AuthLayout,
+        redirect: '/auth/registration',
+        children: [
+            {
+                path: '/auth/registration',
+                name: 'Registration',
+                component: Registration,
+            }
+        ]
+    },
+    {
+        path: '/auth/forgot-pass',
+        name: 'ForgotPass',
+        component: AuthLayout,
+        redirect: '/auth/forgot-pass',
+        children: [
+            {
+                path: '/auth/forgot-pass',
+                name: 'ForgotPass',
+                component: ForgotPass,
+            }
+        ]
+    },
+    {
+        path: '/auth/reset-pass',
+        name: 'ResetPass',
+        component: AuthLayout,
+        redirect: '/auth/reset-pass',
+        children: [
+            {
+                path: '/auth/reset-pass',
+                name: 'ResetPass',
+                component: ResetPass,
             }
         ]
     },

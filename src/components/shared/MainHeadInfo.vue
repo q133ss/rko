@@ -17,7 +17,7 @@
       <div class="head-info__time">
         <a class="head-info__tel" href="tel:+70000000000" target="_blank">+7(000)000-00-00</a>
         <div class="head-info__schedule">
-          ПН-ПТ <span><img src="./images/icons/clock.svg" alt="" /></span> 9:00 - 18:00
+          ПН-ПТ <span><img src="/images/icons/clock.svg" alt="" /></span> 9:00 - 18:00
         </div>
       </div>
     </div>

@@ -1,0 +1,235 @@
+.auth {
+  // .auth__logo
+
+  &__logo {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  // .auth__head
+  
+  &__head {
+    text-align: center;
+  }
+
+  // .auth__title
+
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+    span {
+      color: #616ef8;
+    }
+  }
+
+  // .auth__text
+
+  &__text {
+    margin: 0;
+    color: var(--main-blue-color);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    a {
+      color: inherit;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // .auth__content
+
+  &__content {
+    max-width: 27.5rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  // .auth__form
+
+  &__form {
+  }
+
+  // .auth__item
+
+  &__item {
+    display: block;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  // .auth__label
+
+  &__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0 1rem;
+  }
+
+  // .auth__input
+
+  &__input {
+    position: relative;
+    // .auth__input-input
+
+    &-input {
+      display: block;
+      width: 100%;
+      font-family: var(--default-font);
+      padding: 0.625rem 1rem;
+
+      border-radius: 5px;
+      border: 1px solid #fff;
+      background: #f0f4ff;
+      box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
+      font-size: 0.875rem;
+      outline: none;
+
+      transition: background 0.15s ease;
+
+      &::placeholder {
+        color: rgba(52, 72, 108, 0.5);
+        font-weight: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+
+      &:focus-visible {
+        background: darken(#f0f4ff, 2);
+      }
+    }
+
+    // .auth__input-eye
+    &-eye {
+      padding: 0;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      width: 1.125rem;
+      height: 1.125rem;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background-repeat: no-repeat;
+      background-size: cover;
+      &_show {
+        background-image: url("/images/landing/icons/show-eye.svg");
+      }
+      &_hide {
+        background-image: url("/images/landing/icons/hide-eye.svg");
+      }
+    }
+  }
+
+  // .auth__links
+
+  &__links {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  // .auth__link
+
+  &__link {
+    position: relative;
+    color: var(--main-blue-color);
+
+    &::before {
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: var(--1px);
+      height: 40%;
+      background-color: var(--main-blue-color);
+    }
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+
+      &::before {
+        content: "";
+      }
+    }
+  }
+
+  // .auth__buttons
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // .auth__button
+
+  &__button {
+    color: var(--main-blue-color);
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+    text-decoration: underline;
+
+    text-underline-offset: 0.125rem;
+
+    &:hover {
+      background: var(--main-purple-color);
+      color: var(--white);
+    }
+    &:active {
+      background: var(--main-purple-color);
+      color: var(--white);
+      transform: scale(0.95);
+    }
+    &_blue {
+      color: var(--white);
+      background: var(--main-purple-color);
+      text-decoration: none;
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
+
+  // .auth__prompt
+
+  &__prompt {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  // .auth__descr
+
+  &__descr {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 0.3125rem;
+  }
+
+  // .auth__small-descr
+
+  &__small-descr {
+    font-size: 10px;
+    font-weight: 500;
+    span {
+      font-weight: 600;
+    }
+  }
+}
