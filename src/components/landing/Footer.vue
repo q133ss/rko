@@ -23,7 +23,7 @@
             </ul>
           </nav>
           <div class="footer__up">
-            <button class="footer__back-to-top">
+            <button class="footer__back-to-top" @click="scrollToTop">
               <img src="images/landing/up-button.svg" alt="Иконка вверх траницы" />
             </button>
           </div>
@@ -36,23 +36,38 @@
           </div>
           <div class="footer__social">
             <div class="footer__social-text">подписаться</div>
-            <a class="footer__social-link" href="/" target="_blank">TELEGRAM</a>
+            <div class="footer__social-link">
+              <a href="/" target="_blank">TELEGRAM</a>
+            </div>
           </div>
           <div class="footer__dev-by">
             <img src="images/landing/mbc-logo.svg" alt="Разработка компании MBC" />
           </div>
         </div>
         <div class="footer__footer">
-          <div class="footer__potected">© 2023 Все права защищены</div>
+          <div class="footer__potected">© {{ date }} Все права защищены</div>
           <router-link class="footer__policy" to="/">Политика конфиденциальности</router-link>
-          <div class="footer__potected">Design by Bozhenov</div>
+          <div class="footer__design">Design by Bozhenov</div>
         </div>
       </div>
     </div>
   </footer>
 </template>
 
-<script setup></script>
+<script setup>
+  import { computed } from "@vue/runtime-core";
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
+  const date = computed(() => {
+    return new Date().getFullYear();
+  });
+</script>
 
 <style scoped lang="scss">
   @import "@/assets/scss/landing/_footer.scss";
