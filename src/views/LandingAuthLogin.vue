@@ -30,7 +30,7 @@
       </div>
       <div class="auth__buttons login__buttons">
         <button class="auth__button" @click="$router.go(-1)">Назад</button>
-        <button class="auth__button auth__button_blue">Войти</button>
+        <router-link class="auth__button auth__button_blue" to="/profile">Войти</router-link>
       </div>
     </div>
   </div>
