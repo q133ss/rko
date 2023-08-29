@@ -42,19 +42,19 @@
   const header = [
     {
       title: "Как это работает?",
-      link: "#",
+      link: "#how-it-work",
     },
     {
       title: "Преимущества",
-      link: "#",
+      link: "#advantages",
     },
     {
       title: "Банки-партнёры",
-      link: "#",
+      link: "#partners",
     },
     {
       title: "Контакты",
-      link: "#",
+      link: "#contacts",
     },
   ];
 

@@ -7,19 +7,17 @@
         <ul class="landing-points__items">
           <li class="landing-points__item">
             <div class="landing-points__number">1.</div>
-            <div class="landing-points__text">Возможность работать как физ.лицо и вывод средств без комиссии</div>
+            <div class="landing-points__text">Проверка и отбитие дублей. Возможность перезакрепления заявок</div>
           </li>
           <li class="landing-points__item">
             <div class="landing-points__number">2.</div>
             <div class="landing-points__text">
-              Заключать договора, привлекая клиентов на банковские продукты и получать вознаграждение за сделку
+              Возможность заключать договоры и получать вознаграждения за привлечение новых клиентов.
             </div>
           </li>
           <li class="landing-points__item">
             <div class="landing-points__number">3.</div>
-            <div class="landing-points__text">
-              Отправлять заявки в разные банки из единого окна затрачивая минимум времени на контроль
-            </div>
+            <div class="landing-points__text">Единый интерфейс для подачи заявок во все банки-партнеры</div>
           </li>
         </ul>
       </div>

@@ -39,4 +39,8 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
 @import url("./components/_default-input.scss");

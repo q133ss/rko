@@ -3,7 +3,7 @@
     <div class="container">
       <div class="landing-form__wrapper">
         <h2 class="landing-form__title landing-title">Стать партнёром</h2>
-        <p class="landing-form__descr landing-descr">Начните зарабатывать прямо сейчас. Оставьте заявку.*</p>
+        <p class="landing-form__descr landing-descr">Начните зарабатывать прямо сейчас. Оставьте заявку. <span>*</span></p>
 
         <form class="landing-form__form">
           <div class="landing-form__wrap">

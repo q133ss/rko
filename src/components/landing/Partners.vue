@@ -5,7 +5,7 @@
         <div class="landing-partners__info">
           <h2 class="landing-partners__title landing-title">Наши партнёры</h2>
           <p class="landing-partners__descr landing-descr">
-            Мы работаем с крупнейшими банками и сервисами страны на условиях выгодного сотрудничества
+            Ведем сотрудничество с крупнейшими банками. Ведущие платформы страны.
           </p>
         </div>
         <ul class="landing-partners__items">

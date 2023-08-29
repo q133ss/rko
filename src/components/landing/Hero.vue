@@ -19,8 +19,8 @@
                 <img src="/images/landing/document.svg" alt="Иконка" aria-hidden="true" />
               </div>
               <div class="hero__point-text">
-                <div class="hero__point-head">Offer list</div>
-                <div class="hero__point-footer">Список предложений</div>
+                <div class="hero__point-head">Договор</div>
+                <div class="hero__point-footer">RKO-Service</div>
               </div>
             </div>
             <div class="hero__point">
@@ -28,13 +28,13 @@
                 <img src="/images/landing/look.svg" alt="Иконка" aria-hidden="true" />
               </div>
               <div class="hero__point-text">
-                <div class="hero__point-head">Join</div>
-                <div class="hero__point-footer">Присоединиться</div>
+                <div class="hero__point-head">Согласие на обработку</div>
+                <div class="hero__point-footer">Персональных данных</div>
               </div>
             </div>
           </div>
           <div class="hero__button">
-            <Button>Как это работает</Button>
+            <Button to="/auth/registration">Зарегистрироваться</Button>
           </div>
         </div>
         <div class="hero__picture">

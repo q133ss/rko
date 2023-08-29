@@ -27,6 +27,9 @@
   // .landing-form__descr
 
   &__descr {
+    span {
+      color: var(--main-red-color);
+    }
   }
 
   // .landing-form__form

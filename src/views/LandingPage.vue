@@ -1,11 +1,11 @@
 <template>
-  <Hero />
-  <Features />
-  <Partners />
+  <Hero id="how-it-work" />
+  <Features id="advantages" />
+  <Partners id="partners" />
   <Banner />
   <Points />
   <Form @open-modal="openModal" />
-  <Footer />
+  <Footer id="contacts" />
   <FixedSocials />
   <Modal @close="closeModal" :show="showModal">
     <SendSuccess @close="closeModal" />
@@ -24,14 +24,19 @@
   import Modal from "@/components/landing/Modal.vue";
   import SendSuccess from "@/components/landing/SendSuccess.vue";
   import { ref } from "@vue/reactivity";
+  import { onMounted } from "@vue/runtime-core";
 
   const showModal = ref(false);
 
   function closeModal() {
     showModal.value = false;
   }
-  
+
   function openModal() {
     showModal.value = true;
   }
+
+  onMounted(() => {
+    document.documentElement.classList.add("smooth-scroll");
+  });
 </script>

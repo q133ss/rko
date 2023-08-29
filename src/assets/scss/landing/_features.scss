@@ -30,6 +30,13 @@
     margin-bottom: 2rem;
   }
 
+  // .landing-features__list
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
   // .landing-features__descr
 
   &__descr {
