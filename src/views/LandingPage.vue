@@ -30,10 +30,12 @@
 
   function closeModal() {
     showModal.value = false;
+    document.body.classList.remove("hidden");
   }
 
   function openModal() {
     showModal.value = true;
+    document.body.classList.add("hidden");
   }
 
   onMounted(() => {
