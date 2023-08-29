@@ -51,7 +51,7 @@
     </div>
     <div class="create-application__buttons">
       <Button class="create-application__button" yellowTransparent to="/applications">Назад</Button>
-      <Button class="create-application__button" yellow>Далее</Button>
+      <Button class="create-application__button" yellow>Создать</Button>
     </div>
   </div>
 </template>

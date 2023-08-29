@@ -23,7 +23,7 @@
                 </router-link>
               </div>
               <div class="landing-form__prompt">
-                <span>*</span> Агентский договор заключается только с юридическим лицом (ИП и ООО)
+                <span>*</span> Aгентский договор заключается с юридическими и физическими лицами
               </div>
             </div>
             <div class="landing-form__button">

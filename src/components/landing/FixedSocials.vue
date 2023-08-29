@@ -2,12 +2,12 @@
   <div class="fixed-socials">
     <ul class="fixed-socials__list">
       <li class="fixed-socials__item">
-        <a class="fixed-socials__link" href="">
+        <a class="fixed-socials__link" href="https://web.telegram.org/a/#5914315839" target="_blank">
           <img src="/images/landing/icons/tg-icon.svg" alt="Логотип телеграма" />
         </a>
       </li>
       <li class="fixed-socials__item">
-        <a class="fixed-socials__link" href="mailto:">
+        <a class="fixed-socials__link" href="mailto:service.rko@yandex.ru">
           <img src="/images/landing/icons/email-icon.svg" alt="Логотип почты" />
         </a>
       </li>

@@ -30,14 +30,19 @@
         </div>
         <div class="footer__info">
           <div class="footer__address">
-            <div class="footer__city">г. Санкт Петербург, ул. Куйбышева 31</div>
-            <a class="footer__number" href="tel:88128449549" target="_blank">8 (812) 844-95-49</a>
-            <div class="footer__time">Ежедневно с 9:00 до 20:00</div>
+            <div class="footer__city">
+              г. Тольятти <br />
+              Новый проезд д.8, офис 313
+            </div>
+            <a class="footer__number" href="tel:89093658655" target="_blank">8 (909) 365-86-55</a>
+            <div class="footer__time">
+              ПН-ПТ <span><img src="/images/icons/clock.svg" alt="" /></span> 10:00 - 19:00
+            </div>
           </div>
           <div class="footer__social">
             <div class="footer__social-text">подписаться</div>
             <div class="footer__social-link">
-              <a href="/" target="_blank">TELEGRAM</a>
+              <a href="https://t.me/+FUgNitN1mS1mNzky" target="_blank">TELEGRAM</a>
             </div>
           </div>
           <div class="footer__dev-by">
