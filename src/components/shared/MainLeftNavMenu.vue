@@ -26,7 +26,7 @@
         </div>
         <nav class="nav-menu__nav">
           <ul class="nav-menu__list">
-            <li class="nav-menu__item" v-for="link in links" :key="link.title">
+            <li class="nav-menu__item" v-for="link in links" :key="link.title" @click="closeMenu">
               <router-link
                 class="nav-menu__link"
                 :class="{ 'router-link-active': $route.path.includes(link.route) }"
@@ -106,6 +106,10 @@
   function showMenu() {
     openMenu.value = !openMenu.value;
     document.body.classList.toggle("hidden");
+  }
+  function closeMenu() {
+    openMenu.value = false;
+    document.body.classList.remove("hidden");
   }
 
   function onBeforeEnter(el) {

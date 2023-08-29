@@ -29,6 +29,9 @@
     @media (max-width: 1366px) {
       padding: 1rem;
     }
+    @media (max-width: 768px) {
+      min-height: 100vh;
+    }
   }
   .top-info {
     margin-bottom: 2rem;

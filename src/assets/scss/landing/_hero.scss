@@ -168,6 +168,15 @@
   &__button {
   }
 
+  // .hero__btn
+
+  &__btn {
+    @media (max-width: 480px) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   // .hero__picture
 
   &__picture {
@@ -178,6 +187,7 @@
     @media (max-width: 767px) {
       margin-left: 12%;
       margin-top: 4rem;
+      display: none;
     }
   }
 

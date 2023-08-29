@@ -13,12 +13,14 @@
               </li>
             </ul>
           </nav>
-          <router-link class="header__login" to="/auth">
-            <div class="header__login-text">Войти</div>
-            <div class="header__login-icon">
-              <SvgIcon class="header__login-svg" name="login" />
-            </div>
-          </router-link>
+          <div class="header__login-wrap" @click="closeMenu">
+            <router-link class="header__login" to="/auth">
+              <div class="header__login-text">Войти</div>
+              <div class="header__login-icon">
+                <SvgIcon class="header__login-svg" name="login" />
+              </div>
+            </router-link>
+          </div>
         </div>
         <div class="header__holder" :class="{ header__holder_show: isOpenMenu }" @click="closeMenu"></div>
         <button class="header__burger" :class="{ header__burger_active: isOpenMenu }" @click="toggleMenu">

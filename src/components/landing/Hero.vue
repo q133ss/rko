@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="hero__button">
-            <Button to="/auth/registration">Зарегистрироваться</Button>
+            <Button class="hero__btn" to="/auth/registration">Зарегистрироваться</Button>
           </div>
         </div>
         <div class="hero__picture">

@@ -28,7 +28,8 @@
 
     @media (max-width: 480px) {
       padding: 0.5rem;
-      top: 5rem;
+      top: auto;
+      bottom: 1rem;
     }
 
     // .fixed-socials__list
