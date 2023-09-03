@@ -107,7 +107,8 @@
     transition: transform 0.15s ease;
 
     @media (max-width: 480px) {
-      margin-top: -3.7rem;
+      margin-top: 1rem;
+      margin-bottom: -5rem;
     }
 
     &:hover {
