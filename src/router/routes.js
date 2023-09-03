@@ -8,6 +8,7 @@ import Statistics from '@/views/Statistics.vue'
 import Finance from '@/views/Finance.vue'
 import MoreAboutPayments from '@/views/MoreAboutPayments.vue'
 import MoreAboutTransactions from '@/views/MoreAboutTransactions.vue'
+import Documentations from '@/views/Documentations.vue'
 
 import LandingPage from '@/views/LandingPage.vue'
 import Landing404 from '@/views/Landing404.vue'
@@ -22,24 +23,22 @@ import ClearLayout from '@/layouts/ClearLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
 
 const routes = [
-    {
-        path: '/:pathMatch(.*)*',
-        name: 'Landing404',
-        component: ClearLayout,
-        redirect: '/404',
-        children: [
-            {
-                path: '/404',
-                name: 'Landing404',
-                component: Landing404,
-            }
-        ]
-    },
+    //{
+    //    path: '/:pathMatch(.*)*',
+    //    name: 'Landing404',
+    //    component: ClearLayout,
+    //    children: [
+    //        {
+    //            path: '/404',
+    //            name: 'Landing404',
+    //            component: Landing404,
+    //        }
+    //    ]
+    //},
     {
         path: '/',
         name: 'Landing',
         component: LandingLayout,
-        redirect: '/',
         children: [
             {
                 path: '/',
@@ -52,7 +51,6 @@ const routes = [
         path: '/auth',
         name: 'Auth',
         component: AuthLayout,
-        redirect: '/auth/login',
         children: [
             {
                 path: '/auth/login',
@@ -65,7 +63,6 @@ const routes = [
         path: '/auth/registration',
         name: 'Registration',
         component: AuthLayout,
-        redirect: '/auth/registration',
         children: [
             {
                 path: '/auth/registration',
@@ -78,7 +75,6 @@ const routes = [
         path: '/auth/forgot-pass',
         name: 'ForgotPass',
         component: AuthLayout,
-        redirect: '/auth/forgot-pass',
         children: [
             {
                 path: '/auth/forgot-pass',
@@ -91,7 +87,6 @@ const routes = [
         path: '/auth/reset-pass',
         name: 'ResetPass',
         component: AuthLayout,
-        redirect: '/auth/reset-pass',
         children: [
             {
                 path: '/auth/reset-pass',
@@ -104,7 +99,6 @@ const routes = [
         path: '/profile',
         name: 'Profile',
         component: DefaultLayout,
-        redirect: '/profile',
         children: [
             {
                 path: '/profile',
@@ -117,7 +111,6 @@ const routes = [
         path: '/referrals',
         name: 'Referrals',
         component: DefaultLayout,
-        redirect: '/referrals',
         children: [
             {
                 path: '/referrals',
@@ -130,7 +123,6 @@ const routes = [
         path: '/create-application',
         name: 'CreateApplication',
         component: DefaultLayout,
-        redirect: '/create-application',
         children: [
             {
                 path: '/applications/create',
@@ -143,7 +135,6 @@ const routes = [
         path: '/offers',
         name: 'Offers',
         component: DefaultLayout,
-        redirect: '/offers',
         children: [
             {
                 path: '/offers',
@@ -153,10 +144,21 @@ const routes = [
         ]
     },
     {
+        path: '/documentations',
+        name: 'Documentations',
+        component: DefaultLayout,
+        children: [
+            {
+                path: '/documentations',
+                name: 'Documentations',
+                component: Documentations,
+            }
+        ]
+    },
+    {
         path: '/offer-article',
         name: 'OfferArticle',
         component: DefaultLayout,
-        redirect: '/offer-article',
         children: [
             {
                 path: '/offers/offer',
@@ -169,7 +171,6 @@ const routes = [
         path: '/statistics',
         name: 'Statistics',
         component: DefaultLayout,
-        redirect: '/statistics',
         children: [
             {
                 path: '/statistics',
@@ -182,7 +183,6 @@ const routes = [
         path: '/finance',
         name: 'Finance',
         component: DefaultLayout,
-        redirect: '/finance',
         children: [
             {
                 path: '/finance',
@@ -195,7 +195,6 @@ const routes = [
         path: '/transactions',
         name: 'MoreAboutTransactions',
         component: DefaultLayout,
-        redirect: '/transactions',
         children: [
             {
                 path: '/finance/transactions',
@@ -208,7 +207,6 @@ const routes = [
         path: '/payments',
         name: 'MoreAboutPayments',
         component: DefaultLayout,
-        redirect: '/payments',
         children: [
             {
                 path: '/finance/payments',
@@ -220,7 +218,6 @@ const routes = [
     {
         path: '/applications',
         name: 'Applications',
-        redirect: '/applications',
         component: DefaultLayout,
         children: [
             {

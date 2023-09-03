@@ -93,7 +93,7 @@
     { icon: "dashboard", route: "/statistics", title: "Статистика" },
     { icon: "form", route: "/applications", title: "Заявки" },
     { icon: "bank", route: "/offers", title: "Предложения" },
-    //{ icon: "documents", route: "Home", title: "Документы" },
+    { icon: "documents", route: "/documentations", title: "Документация" },
     { icon: "services", route: "/referrals", title: "Реферальная система" },
     { icon: "money", route: "/finance", title: "Финансы" },
   ];
