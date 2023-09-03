@@ -4,11 +4,6 @@
     <div class="documentation__title">Документация</div>
     <div class="documentation__docs">
       <div class="documentation__box">
-        <div
-          v-if="styleClass"
-          class="documentation__box-disabled"
-          @click="styleClass = !styleClass"
-        ></div>
         <div class="documentation__descr">Документация для пользователя</div>
         <div class="documentation__text">Внутренняя документация сервиса</div>
         <div class="documentation__doc">
@@ -37,7 +32,6 @@
 
   const showPrompt = ref(true);
   const notOperations = ref(true);
-  const styleClass = ref(true);
 
   const head = {
     link: "/documentations",

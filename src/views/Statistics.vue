@@ -70,7 +70,7 @@
     <div class="statistics__item">
       <div class="statistics__box">
         <div class="statistics__head">
-          <div class="statistics__title">Последнии операции по заявка</div>
+          <div class="statistics__title">Последнии операции по заявкам</div>
           <router-link class="statistics__link" to="/applications">
             <SvgIcon class="statistics__svg" name="prime-link" />
           </router-link>
