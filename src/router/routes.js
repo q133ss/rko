@@ -23,18 +23,18 @@ import ClearLayout from '@/layouts/ClearLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
 
 const routes = [
-    //{
-    //    path: '/:pathMatch(.*)*',
-    //    name: 'Landing404',
-    //    component: ClearLayout,
-    //    children: [
-    //        {
-    //            path: '/404',
-    //            name: 'Landing404',
-    //            component: Landing404,
-    //        }
-    //    ]
-    //},
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'Landing404',
+        component: ClearLayout,
+        children: [
+            {
+                path: '/404',
+                name: 'Landing404',
+                component: Landing404,
+            }
+        ]
+    },
     {
         path: '/',
         name: 'Landing',
@@ -51,6 +51,7 @@ const routes = [
         path: '/auth',
         name: 'Auth',
         component: AuthLayout,
+        redirect: '/auth/login',
         children: [
             {
                 path: '/auth/login',
