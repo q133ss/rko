@@ -21,6 +21,8 @@ import DefaultLayout from '@/layouts/Default.vue'
 import LandingLayout from '@/layouts/LandingLayout.vue'
 import ClearLayout from '@/layouts/ClearLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
+import authService from "../services/authService.js";
+import router from "./index.js";
 
 const routes = [
     {
@@ -52,6 +54,12 @@ const routes = [
         name: 'Auth',
         component: AuthLayout,
         redirect: '/auth/login',
+        beforeEnter: (to, from, next) => {
+            if(authService.checkAuth()){
+                router.push('/profile');
+            }
+            next();
+        },
         children: [
             {
                 path: '/auth/login',
