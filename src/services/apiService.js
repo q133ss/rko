@@ -8,8 +8,20 @@ class apiService {
 	async login(data) {
 		try {
 			const response = await axios.post(this.#host + '/auth/login', data)
-			localStorage.setItem('access_token', response.data.accessToken)
-			await router.push('/profile')
+			localStorage.setItem('access_token', response.data.accessToken);
+			await router.push('/profile');
+			return true;
+		} catch (err) {
+			console.error(err);
+			return false;
+		}
+	}
+
+	async register(data) {
+		try {
+			const response = await axios.post(this.#host + '/auth/register', data);
+			localStorage.setItem('access_token', response.data.accessToken);
+			await router.push('/profile');
 			return true;
 		} catch (err) {
 			console.error(err);

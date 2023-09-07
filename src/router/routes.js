@@ -72,6 +72,12 @@ const routes = [
         path: '/auth/registration',
         name: 'Registration',
         component: AuthLayout,
+        beforeEnter: (to, from, next) => {
+            if(authService.checkAuth()){
+                router.push('/profile');
+            }
+            next();
+        },
         children: [
             {
                 path: '/auth/registration',
@@ -108,6 +114,12 @@ const routes = [
         path: '/profile',
         name: 'Profile',
         component: DefaultLayout,
+        beforeEnter: (to, from, next) => {
+            if(!authService.checkAuth()){
+                router.push('/auth/login');
+            }
+            next();
+        },
         children: [
             {
                 path: '/profile',

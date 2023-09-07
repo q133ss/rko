@@ -9,19 +9,19 @@
         <label class="auth__item">
           <span class="auth__label">ФИО</span>
           <div class="auth__input">
-            <input class="auth__input-input" type="text" placeholder="ФИО" />
+            <input class="auth__input-input" v-model="fio" type="text" placeholder="ФИО" />
           </div>
         </label>
         <label class="auth__item">
           <span class="auth__label">Логин/Почта</span>
           <div class="auth__input">
-            <input class="auth__input-input" type="email" placeholder="example@mail.com" />
+            <input class="auth__input-input" v-model="login" type="email" placeholder="example@mail.com" />
           </div>
         </label>
         <label class="auth__item">
           <span class="auth__label">Пароль</span>
           <div class="auth__input">
-            <input class="auth__input-input" :type="pass ? 'password' : 'text'" placeholder="***********" />
+            <input class="auth__input-input" v-model="password" :type="pass ? 'password' : 'text'" placeholder="***********" />
             <button
               @click.prevent="pass = !pass"
               class="auth__input-eye"
@@ -32,7 +32,7 @@
         <label class="auth__item">
           <span class="auth__label">Пароль</span>
           <div class="auth__input">
-            <input class="auth__input-input" :type="repeatPass ? 'password' : 'text'" placeholder="***********" />
+            <input class="auth__input-input" v-model="re_password" :type="repeatPass ? 'password' : 'text'" placeholder="***********" />
             <button
               @click.prevent="repeatPass = !repeatPass"
               class="auth__input-eye"
@@ -49,7 +49,7 @@
       </div>
       <div class="auth__buttons register__buttons">
         <button class="auth__button" @click="$router.go(-1)">Назад</button>
-        <button class="auth__button auth__button_blue">Зарегистрироваться</button>
+        <button class="auth__button auth__button_blue" @click="doRegister()">Зарегистрироваться</button>
       </div>
     </div>
   </div>
@@ -61,6 +61,58 @@
 
   const pass = ref(true);
   const repeatPass = ref(true);
+</script>
+
+<script>
+import apiService from "../services/apiService.js";
+
+export default {
+  data() {
+    return {
+      fio: null,
+      login: null,
+      password: null,
+      re_password: null,
+      errors: []
+    }
+  },
+  methods: {
+    doRegister(){
+      this.errors = [];
+
+      if(!this.fio){
+        this.errors.push('Введите ФИО.');
+      }
+
+      if(!this.login){
+        this.errors.push('Введите логин.');
+      }
+
+      if(!this.password){
+        this.errors.push('Введите пароль.');
+      }
+
+      if(!this.re_password){
+        this.errors.push('Введите повторный пароль.');
+      }
+
+      if(this.re_password !== this.password){
+        this.errors.push('Пароли не совпадают.');
+      }
+
+      if(this.errors.length === 0){
+        let fio = this.fio;
+        let username = this.login;
+        let email = this.login;
+        let password = this.password;
+        let password_confirmation = this.re_password;
+
+        apiService.register({fio, username, email, password, password_confirmation});
+      }
+
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
