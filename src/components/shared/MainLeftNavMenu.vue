@@ -7,7 +7,7 @@
         </div>
         <div class="nav-menu__info">
           <div class="nav-menu__head">
-            <div class="nav-menu__id">ID: {{ data.number }}</div>
+            <div class="nav-menu__id">ID: {{ id }}</div>
             <div class="nav-menu__position">{{ data.pos }}</div>
           </div>
           <div class="nav-menu__avatar">
@@ -88,7 +88,7 @@
   const subBalance = ref(true);
   const openMenu = ref(false);
 
-  const data = { number: "0000", pos: "Веб-Мастер", name: "Степанов Олег Александрович" };
+  const data = { number: '000', pos: "Веб-Мастер", name: "Степанов Олег Александрович" };
   const links = [
     { icon: "dashboard", route: "/statistics", title: "Статистика" },
     { icon: "form", route: "/applications", title: "Заявки" },
@@ -124,6 +124,28 @@
   function onLeave(el) {
     el.style.height = "0";
   }
+</script>
+
+<script>
+import apiService from "../../services/apiService.js";
+
+export default {
+  data() {
+    return {
+      id: null,
+    }
+  },
+  async mounted() {
+    this.id = await this.getId();
+  },
+  methods: {
+    async getId(){
+      let data = JSON.parse(await apiService.getUserInfo());
+      console.log(data);
+      return data.id;
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
