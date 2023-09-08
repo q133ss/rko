@@ -5,7 +5,7 @@
     </div>
     <div class="auth__title">Регистрация в <span>RKO-Service</span></div>
     <div class="auth__content">
-      <form class="auth__form">
+      <form class="auth__form" @keyup.enter="doRegister">
         <label class="auth__item">
           <span class="auth__label">ФИО</span>
           <div class="auth__input">

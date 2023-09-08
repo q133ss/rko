@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="auth__content">
-      <form class="auth__form" @submit.prevent="doLogin">
+      <form class="auth__form" @submit.prevent="doLogin" @keyup.enter="doLogin">
         <label class="auth__item">
           <span class="auth__label">Логин/Почта</span>
           <div class="auth__input">
