@@ -4,6 +4,7 @@
       <img src="/images/landing-logo.svg" alt="Логотип" />
     </div>
     <div class="auth__title">Регистрация в <span>RKO-Service</span></div>
+    <span class="errors">{{errors[0]}}</span>
     <div class="auth__content">
       <form class="auth__form" @keyup.enter="doRegister">
         <label class="auth__item">
@@ -77,7 +78,7 @@ export default {
     }
   },
   methods: {
-    doRegister(){
+    async doRegister(){
       this.errors = [];
 
       if(!this.fio){
@@ -107,7 +108,10 @@ export default {
         let password = this.password;
         let password_confirmation = this.re_password;
 
-        apiService.register({fio, username, email, password, password_confirmation});
+        let query = await apiService.register({fio, username, email, password, password_confirmation});
+        if(!query){
+          this.errors.push('Ошибка');
+        }
       }
 
     }
@@ -133,5 +137,15 @@ export default {
         }
       }
     }
+  }
+
+  .errors{
+    margin: 0;
+    color: var(--main-red-color);
+    font-size: var(--small-text-size);
+    font-weight: 500;
+    display: block;
+    text-align: center;
+    width: 100%;
   }
 </style>

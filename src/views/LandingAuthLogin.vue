@@ -9,6 +9,7 @@
         У вас нет аккаунта? <router-link to="/auth/registration">Зарегистрироваться</router-link>
       </div>
     </div>
+    <span class="errors">{{errors[0]}}</span>
     <div class="auth__content">
       <form class="auth__form" @submit.prevent="doLogin" @keyup.enter="doLogin">
         <label class="auth__item">
@@ -48,22 +49,25 @@ export default{
     }
   },
   methods:{
-    doLogin: function(event){
+    doLogin: async function(event){
       this.errors = [];
-
-      if(!this.password){
-        this.errors.push('Введите пароль.');
-      }
 
       if (!this.login) {
         this.errors.push('Укажите электронную почту.');
+      }
+
+      if(!this.password){
+        this.errors.push('Введите пароль.');
       }
 
       if(this.errors.length === 0){
         //если ошибок нет
         let password = this.password;
         let email = this.login;
-        apiService.login({email, password});
+        let query = await apiService.login({email, password});
+        if(!query){
+          this.errors.push('Неверный логин или пароль.');
+        }
       }
     }
   }
@@ -74,5 +78,15 @@ export default{
   @import "@/assets/scss/landing/_auth.scss";
   .login__buttons {
     margin-top: 4rem;
+  }
+
+  .errors{
+    margin: 0;
+    color: var(--main-red-color);
+    font-size: var(--small-text-size);
+    font-weight: 500;
+    display: block;
+    text-align: center;
+    width: 100%;
   }
 </style>
