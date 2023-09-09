@@ -104,10 +104,9 @@ class apiService {
 		}
 	}
 
-	//TODO переделать под sendPostQ
 	async register(data) {
 		try {
-			const response = await axios.post(this.#host + '/auth/register', data);
+			const response = await this.sendPostQuery('/auth/register', data);
 			localStorage.setItem('access_token', response.data.accessToken);
 			localStorage.setItem('refresh_token', response.data.refreshToken);
 			await router.push('/profile');

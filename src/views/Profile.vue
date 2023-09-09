@@ -140,32 +140,6 @@ export default {
     }
   },
   async mounted() {
-    // async function getData() {
-    //   try {
-    //     const data = await apiService.getUserInfo();
-    //     let formattedData = JSON.parse(data);
-    //     return formattedData;
-    //
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // }
-
-    // let data = await getData();
-    // this.fio = data.attributes.surname + " " + data.attributes.firstname + " " + data.attributes.patronymic;
-    // this.email = data.attributes.email;
-    // this.photo = data.attributes.photo;
-    // this.phone = data.attributes.phone;
-    // this.site = data.attributes.site;
-    //
-    // this.inn = data.attributes.inn;
-    // this.ogrn = data.attributes.ogrn;
-    // this.bik = data.attributes.bik;
-    // this.bank = data.attributes.bank;
-    // this.correspondence_address = data.attributes.correspondence_address;
-    // this.correspondence_check = data.attributes.correspondence_check;
-    // this.calculated_check = data.attributes.calculated_check;
-
     await this.getData();
 
   },
