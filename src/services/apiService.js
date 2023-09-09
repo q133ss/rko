@@ -29,18 +29,23 @@ class apiService {
 				const refreshToken = localStorage.getItem('refresh_token')
 				let config = {
 					headers: {
-						'Authorization': 'Bearer ' + refreshToken
+						'Authorization': 'Bearer ' + refreshToken,
+						'Accept': 'application/json'
 					}
 				};
 
-				const newToken = await axios.post(this.#host + '/auth/refresh-token', {}, config)
-				// Перезаписываем токен
-				const newTokenData = {
-					accessToken: newToken.accessToken,
-					timestamp: new Date().getTime() // текущая дата и время в миллисекундах
-				};
-				localStorage.setItem('access_token', JSON.stringify(newTokenData));
-				return newToken.accessToken;
+				try {
+					const newToken = await axios.post(this.#host + '/auth/refresh-token', {}, config)
+					// Перезаписываем токен
+					const newTokenData = {
+						accessToken: newToken.accessToken,
+						timestamp: new Date().getTime() // текущая дата и время в миллисекундах
+					};
+					localStorage.setItem('access_token', JSON.stringify(newTokenData));
+					return newToken.accessToken;
+				} catch (err) {
+					localStorage.clear();
+				}
 			}
 		}
 
@@ -70,7 +75,8 @@ class apiService {
 		try {
 			let config = {
 				headers: {
-					'Authorization': 'Bearer ' + await this.getToken()
+					'Authorization': 'Bearer ' + await this.getToken(),
+					'Content-Type': 'multipart/form-data'
 				}
 			};
 

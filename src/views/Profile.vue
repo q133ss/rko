@@ -4,7 +4,8 @@
       <div class="cabinet__box cabinet__box_user">
         <div class="cabinet__photo">
           <img class="cabinet__img" :src="photo ?? '/images/big-photo.jpg'" alt="Степанов Олег Александрович" />
-          <Button class="cabinet__upload" icon="picture" purple>Изменить фото</Button>
+          <Button class="cabinet__upload" v-on:click="openFileUpload" icon="picture" purple>Изменить фото</Button>
+          <input ref="fileInput" style="display:none;" id="file-upload" type="file" @change="handleFileChange">
         </div>
 
         <label class="cabinet__label">
@@ -175,6 +176,7 @@ export default {
     },
     update(){
       //TODO добавать FIO
+      let photo = this.photo;
       let email = this.email;
       let phone = this.phone;
       let site = this.site;
@@ -189,13 +191,21 @@ export default {
       let correspondence_check = this.correspondence_check;
       let calculated_check = this.calculated_check;
       let is_electronic_document_management = this.is_electronic_document_management;
-
-
-      apiService.updateUserInfo({email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check, is_electronic_document_management});
+      apiService.updateUserInfo({photo, email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check, is_electronic_document_management});
     },
     handleCheckboxChange(isChecked) {
       // Обработка состояния чекбокса
       this.is_electronic_document_management = isChecked;
+    },
+    openFileUpload() {
+      this.$refs.fileInput.click();
+    },
+    handleFileChange(event) {
+      const file = event.target.files[0];
+      const formData = new FormData();
+      formData.append('photo', file);
+      //this.photo = formData;
+      apiService.updateUserInfo({photo: formData});
     }
   }
 }
