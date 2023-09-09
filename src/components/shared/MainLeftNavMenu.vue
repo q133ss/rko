@@ -141,7 +141,6 @@ export default {
   methods: {
     async getId(){
       let data = JSON.parse(await apiService.getUserInfo());
-      console.log(data);
       return data.id;
     }
   }

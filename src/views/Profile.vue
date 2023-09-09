@@ -9,22 +9,22 @@
 
         <label class="cabinet__label">
           <span class="cabinet__label-title">ФИО</span>
-          <input class="default-input" type="text" :placeholder="fio" />
+          <input class="default-input" type="text" v-model="fio" />
         </label>
 
         <label class="cabinet__label">
           <span class="cabinet__label-title">E-Mail</span>
-          <input class="default-input" type="email" :placeholder="email" />
+          <input class="default-input" v-model="email" type="email"/>
         </label>
 
         <label class="cabinet__label">
           <span class="cabinet__label-title">Телефон</span>
-          <input class="default-input" type="tel" :placeholder="phone ?? '+7 (999) 999-99-99'" />
+          <input class="default-input" type="tel" v-model="phone" />
         </label>
 
         <label class="cabinet__label">
           <span class="cabinet__label-title">Сайт</span>
-          <input class="default-input" type="text" :placeholder="site ?? 'rkoservice.ru'" />
+          <input class="default-input" type="text" v-model="site" />
         </label>
 
         <label class="cabinet__label">
@@ -41,44 +41,44 @@
     <div class="cabinet__info">
       <div class="cabinet__head-buttons">
         <Button class="cabinet__head-button" icon="key" orange>Изменить пароль</Button>
-        <Button class="cabinet__head-button" icon="save" green>Сохранить изменения</Button>
+        <Button class="cabinet__head-button" icon="save" @click="update" green>Сохранить изменения</Button>
       </div>
       <div class="cabinet__box">
         <div class="cabinet__title">Информация и платежные реквизиты</div>
 
         <label class="cabinet__input">
           <span class="cabinet__input-text">Адрес для корреспонденции</span>
-          <input class="default-input" type="text" :placeholder="correspondence_address" />
+          <input class="default-input" type="text" v-model="correspondence_address" />
         </label>
 
         <label class="cabinet__input">
           <span class="cabinet__input-text">ИНН</span>
-          <input class="default-input" type="text" :placeholder="inn" />
+          <input class="default-input" type="text" v-model="inn" />
         </label>
 
         <label class="cabinet__input">
           <span class="cabinet__input-text">ОГРН</span>
-          <input class="default-input" type="text" :placeholder="ogrn" />
+          <input class="default-input" type="text" v-model="ogrn" />
         </label>
 
         <label class="cabinet__input">
           <span class="cabinet__input-text">БИК</span>
-          <input class="default-input" type="text" :placeholder="bik" />
+          <input class="default-input" type="text" v-model="bik" />
         </label>
 
         <label class="cabinet__input">
           <span class="cabinet__input-text">Наименование банка</span>
-          <input class="default-input" type="text" :placeholder="bank" />
+          <input class="default-input" type="text" v-model="bank" />
         </label>
 
         <label class="cabinet__input">
           <span class="cabinet__input-text">Корреспондентский счет</span>
-          <input class="default-input" type="text" :placeholder="correspondence_check" />
+          <input class="default-input" type="text" v-model="correspondence_check" />
         </label>
 
         <label class="cabinet__input">
           <span class="cabinet__input-text">Расчетный счет</span>
-          <input class="default-input" type="text" :placeholder="calculated_check" />
+          <input class="default-input" type="text" v-model="calculated_check" />
         </label>
 
         <label class="cabinet__input">
@@ -140,35 +140,84 @@ export default {
     }
   },
   async mounted() {
-    //получаем инфу о юзере
-    //нужно их в 1 переменную записать в array, а не заниматься хней.. Но как обновлять потом???
+    // async function getData() {
+    //   try {
+    //     const data = await apiService.getUserInfo();
+    //     let formattedData = JSON.parse(data);
+    //     return formattedData;
+    //
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // }
 
-    async function getData() {
+    // let data = await getData();
+    // this.fio = data.attributes.surname + " " + data.attributes.firstname + " " + data.attributes.patronymic;
+    // this.email = data.attributes.email;
+    // this.photo = data.attributes.photo;
+    // this.phone = data.attributes.phone;
+    // this.site = data.attributes.site;
+    //
+    // this.inn = data.attributes.inn;
+    // this.ogrn = data.attributes.ogrn;
+    // this.bik = data.attributes.bik;
+    // this.bank = data.attributes.bank;
+    // this.correspondence_address = data.attributes.correspondence_address;
+    // this.correspondence_check = data.attributes.correspondence_check;
+    // this.calculated_check = data.attributes.calculated_check;
+
+    await this.getData();
+
+  },
+  methods: {
+    async getData(){
       try {
-        const data = await apiService.getUserInfo();
-        let formattedData = JSON.parse(data);
-        return formattedData;
+        const unFormattedData = await apiService.getUserInfo();
+        let data;
+
+        if(typeof(unFormattedData) == 'object'){
+          data = unFormattedData;
+        }else{
+          data = JSON.parse(unFormattedData);
+        }
+
+        this.fio = data.attributes.surname + " " + data.attributes.firstname + " " + data.attributes.patronymic;
+        this.email = data.attributes.email;
+        this.photo = data.attributes.photo;
+        this.phone = data.attributes.phone;
+        this.site = data.attributes.site;
+
+        this.inn = data.attributes.inn;
+        this.ogrn = data.attributes.ogrn;
+        this.bik = data.attributes.bik;
+        this.bank = data.attributes.bank;
+        this.correspondence_address = data.attributes.correspondence_address;
+        this.correspondence_check = data.attributes.correspondence_check;
+        this.calculated_check = data.attributes.calculated_check;
 
       } catch (error) {
         console.error(error);
       }
+    },
+    update(){
+      //TODO добавать FIO
+      let email = this.email;
+      let phone = this.phone;
+      let site = this.site;
+      let social_network_1 = this.social_network_1;
+      let social_network_2 = this.social_network_2;
+
+      let inn = this.inn;
+      let ogrn = this.ogrn;
+      let bik = this.bik;
+      let bank = this.bank;
+      let correspondence_address = this.correspondence_address;
+      let correspondence_check = this.correspondence_check;
+      let calculated_check = this.calculated_check;
+
+
+      apiService.updateUserInfo({email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check});
     }
-
-    let data = await getData();
-    this.fio = data.attributes.surname + " " + data.attributes.firstname + " " + data.attributes.patronymic;
-    this.email = data.attributes.email;
-    this.photo = data.attributes.photo;
-    this.phone = data.attributes.phone;
-    this.site = data.attributes.site;
-
-    this.inn = data.attributes.inn;
-    this.ogrn = data.attributes.ogrn;
-    this.bik = data.attributes.bik;
-    this.bank = data.attributes.bank;
-    this.correspondence_address = data.attributes.correspondence_address;
-    this.correspondence_check = data.attributes.correspondence_check;
-    this.calculated_check = data.attributes.calculated_check;
-
   }
 }
 </script>

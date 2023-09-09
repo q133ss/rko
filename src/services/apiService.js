@@ -119,19 +119,12 @@ class apiService {
 	}
 
 	async getUserInfo() {
-		//TODO переделать под sendGetQ
 		try {
-
 			if(!localStorage.getItem('user')){
-				//тут нужно передать ауф ключ
-				let t = await this.getToken();
-				const response = await axios.get(this.#host + '/me', {
-					headers: {
-						'Authorization': 'Bearer ' + t
-					}
-				});
+				const response = await this.sendGetQuery('/me', true);
 				localStorage.setItem('user', JSON.stringify(response.data.data));
-				return response.data;
+				console.log(response.data.data)
+				return response.data.data;
 			}else{
 				return localStorage.getItem('user');
 			}
@@ -141,8 +134,10 @@ class apiService {
 		}
 	}
 
-	async updateUserInfo() {
+	async updateUserInfo(data) {
 		//Тут нужно обновлять localStorage тоже!!!!
+		//TODO TODO TODO TODO
+		this.sendPostQuery('/me/update', data, true);
 	}
 }
 
