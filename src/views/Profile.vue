@@ -83,7 +83,7 @@
 
         <label class="cabinet__input">
           <span class="cabinet__input-text cabinet__input-text_mobile-hide"></span>
-          <Checkbox>Наличие электронного документооборота</Checkbox>
+          <Checkbox @checkboxChange="handleCheckboxChange">Наличие электронного документооборота</Checkbox>
         </label>
       </div>
       <div class="cabinet__docs">
@@ -136,7 +136,7 @@ export default {
       correspondence_check: null,
       calculated_check: null,
 
-      errors: [],
+      is_electronic_document_management: null
     }
   },
   async mounted() {
@@ -188,9 +188,14 @@ export default {
       let correspondence_address = this.correspondence_address;
       let correspondence_check = this.correspondence_check;
       let calculated_check = this.calculated_check;
+      let is_electronic_document_management = this.is_electronic_document_management;
 
 
-      apiService.updateUserInfo({email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check});
+      apiService.updateUserInfo({email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check, is_electronic_document_management});
+    },
+    handleCheckboxChange(isChecked) {
+      // Обработка состояния чекбокса
+      this.is_electronic_document_management = isChecked;
     }
   }
 }
