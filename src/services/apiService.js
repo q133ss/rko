@@ -66,6 +66,22 @@ class apiService {
 		}
 	}
 
+	async sendPatchQuery(endpoint, data) {
+		try {
+			let config = {
+				headers: {
+					'Authorization': 'Bearer ' + await this.getToken()
+				}
+			};
+
+			const response = await axios.patch(this.#host + endpoint, data, config)
+			return response;
+		} catch (err) {
+			console.error(err);
+			return false;
+		}
+	}
+
 	async sendGetQuery(endpoint, withAuth = false){
 		try {
 			let config = {};
@@ -127,8 +143,6 @@ class apiService {
 			if(!localStorage.getItem('user')){
 				const response = await this.sendGetQuery('/me', true);
 				localStorage.setItem('user', JSON.stringify(response.data.data));
-				//TODO удалть лог
-				console.log(response)
 				return response.data.data;
 			}else{
 				return localStorage.getItem('user');
@@ -140,9 +154,15 @@ class apiService {
 	}
 
 	async updateUserInfo(data) {
-		//Тут нужно обновлять localStorage тоже!!!!
-		//TODO TODO TODO TODO
-		this.sendPostQuery('/me/update', data, true);
+		try {
+			const response = this.sendPatchQuery('/me/update', data, true);
+			//Обновляем юзера локально
+			const userData = await this.sendGetQuery('/me', true);
+			localStorage.setItem('user', JSON.stringify(userData.data.data));
+		} catch (err) {
+			console.error(err);
+			return false;
+		}
 	}
 }
 

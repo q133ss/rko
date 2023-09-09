@@ -29,12 +29,12 @@
 
         <label class="cabinet__label">
           <span class="cabinet__label-title">Соц.сети</span>
-          <input class="default-input" type="text" placeholder="olegstp/vk.com" />
+          <input class="default-input" type="text" v-model="social_network_1" placeholder="olegstp/vk.com" />
         </label>
 
         <label class="cabinet__label">
           <span class="cabinet__label-title">Соц.сети</span>
-          <input class="default-input" type="text" placeholder="olegstp/tm#523234" />
+          <input class="default-input" type="text" v-model="social_network_2" placeholder="olegstp/tm#523234" />
         </label>
       </div>
     </div>
