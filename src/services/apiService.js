@@ -77,7 +77,6 @@ class apiService {
 					}
 				};
 			}
-
 			const response = await axios.get(this.#host + endpoint, config);
 			return response;
 		} catch (err) {
@@ -107,7 +106,13 @@ class apiService {
 	async register(data) {
 		try {
 			const response = await this.sendPostQuery('/auth/register', data);
-			localStorage.setItem('access_token', response.data.accessToken);
+
+			const tokenData = {
+				accessToken: response.data.accessToken,
+				timestamp: new Date().getTime() // текущая дата и время в миллисекундах
+			};
+
+			localStorage.setItem('access_token', JSON.stringify(tokenData));
 			localStorage.setItem('refresh_token', response.data.refreshToken);
 			await router.push('/profile');
 			return true;
@@ -122,7 +127,8 @@ class apiService {
 			if(!localStorage.getItem('user')){
 				const response = await this.sendGetQuery('/me', true);
 				localStorage.setItem('user', JSON.stringify(response.data.data));
-				console.log(response.data.data)
+				//TODO удалть лог
+				console.log(response)
 				return response.data.data;
 			}else{
 				return localStorage.getItem('user');
