@@ -52,15 +52,19 @@ class apiService {
 		return false;
 	}
 
-	async sendPostQuery(endpoint, data, withAuth = false) {
+	async sendPostQuery(endpoint, data, withAuth = false, contentType = null) {
 		try {
 			let config = {};
 			if(withAuth){
-				let config = {
+				config = {
 					headers: {
 						'Authorization': 'Bearer ' + await this.getToken()
 					}
 				};
+
+				if(contentType !== null){
+					config.headers['Content-Type'] = contentType;
+				}
 			}
 
 			const response = await axios.post(this.#host + endpoint, data, config)
@@ -161,7 +165,7 @@ class apiService {
 
 	async updateUserInfo(data) {
 		try {
-			const response = this.sendPatchQuery('/me/update', data, true);
+			const response = this.sendPostQuery('/me/update', data, true, 'multipart/form-data');
 			//Обновляем юзера локально
 			const userData = await this.sendGetQuery('/me', true);
 			localStorage.setItem('user', JSON.stringify(userData.data.data));

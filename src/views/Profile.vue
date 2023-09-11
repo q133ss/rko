@@ -200,12 +200,12 @@ export default {
     openFileUpload() {
       this.$refs.fileInput.click();
     },
-    handleFileChange(event) {
+    async handleFileChange(event) {
       const file = event.target.files[0];
       const formData = new FormData();
       formData.append('photo', file);
-      //this.photo = formData;
-      apiService.updateUserInfo({photo: formData});
+      await apiService.updateUserInfo(formData);
+      this.photo = JSON.parse(localStorage.getItem('user')).attributes.photo;
     }
   }
 }
