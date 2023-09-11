@@ -163,15 +163,23 @@ class apiService {
 		}
 	}
 
-	async updateUserInfo(data) {
+	async updateUserInfo(data, isPhoto = false) {
 		try {
-			const response = this.sendPostQuery('/me/update', data, true, 'multipart/form-data');
+			let contentType = null;
+			if(isPhoto) {
+				contentType = 'multipart/form-data';
+			}
+
+			const response = await this.sendPostQuery('/me/update', data, true, contentType);
 			//Обновляем юзера локально
-			const userData = await this.sendGetQuery('/me', true);
-			localStorage.setItem('user', JSON.stringify(userData.data.data));
+			if(response.status === 200) {
+				const userData = await this.sendGetQuery('/me', true);
+				localStorage.setItem('user', JSON.stringify(userData.data.data));
+				return 'Данные успешно сохранены';
+			}
+			return 'Произошла ошибка, попробуйте еще раз';
 		} catch (err) {
 			console.error(err);
-			return false;
 		}
 	}
 }

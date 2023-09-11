@@ -1,6 +1,6 @@
 <template>
   <label class="checkbox">
-    <input type="checkbox" class="checkbox__input" v-model="isChecked" @change="handleChange" />
+    <input type="checkbox" class="checkbox__input" v-model="isChecked" :checked="isActive" @change="handleChange" />
     <div class="checkbox__check"></div>
     <div class="checkbox__text"><slot /></div>
   </label>
@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  props: ['isActive'],
   data() {
     return {
       isChecked: false

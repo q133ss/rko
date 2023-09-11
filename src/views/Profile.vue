@@ -44,6 +44,7 @@
         <Button class="cabinet__head-button" icon="key" orange>Изменить пароль</Button>
         <Button class="cabinet__head-button" icon="save" @click="update" green>Сохранить изменения</Button>
       </div>
+      <span class="save__success">{{successSave}}</span>
       <div class="cabinet__box">
         <div class="cabinet__title">Информация и платежные реквизиты</div>
 
@@ -84,7 +85,7 @@
 
         <label class="cabinet__input">
           <span class="cabinet__input-text cabinet__input-text_mobile-hide"></span>
-          <Checkbox @checkboxChange="handleCheckboxChange">Наличие электронного документооборота</Checkbox>
+          <Checkbox @checkboxChange="handleCheckboxChange" :isActive="is_electronic_document_managementCheck">Наличие электронного документооборота</Checkbox>
         </label>
       </div>
       <div class="cabinet__docs">
@@ -137,7 +138,10 @@ export default {
       correspondence_check: null,
       calculated_check: null,
 
-      is_electronic_document_management: null
+      is_electronic_document_management: null,
+      is_electronic_document_managementCheck: null,
+
+      successSave: null,
     }
   },
   async mounted() {
@@ -170,13 +174,14 @@ export default {
         this.correspondence_check = data.attributes.correspondence_check;
         this.calculated_check = data.attributes.calculated_check;
 
+        this.is_electronic_document_managementCheck = data.attributes.is_electronic_document_management;
+
       } catch (error) {
         console.error(error);
       }
     },
-    update(){
+    async update(){
       //TODO добавать FIO
-      let photo = this.photo;
       let email = this.email;
       let phone = this.phone;
       let site = this.site;
@@ -190,8 +195,14 @@ export default {
       let correspondence_address = this.correspondence_address;
       let correspondence_check = this.correspondence_check;
       let calculated_check = this.calculated_check;
-      let is_electronic_document_management = this.is_electronic_document_management;
-      apiService.updateUserInfo({photo, email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check, is_electronic_document_management});
+      let updateData = {email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check};
+
+      if(this.is_electronic_document_management !== null){
+        updateData.is_electronic_document_management = this.is_electronic_document_management;
+      }
+
+      this.successSave = await apiService.updateUserInfo(updateData);
+      setTimeout(() => this.successSave = null, 5000);
     },
     handleCheckboxChange(isChecked) {
       // Обработка состояния чекбокса
@@ -204,12 +215,20 @@ export default {
       const file = event.target.files[0];
       const formData = new FormData();
       formData.append('photo', file);
-      await apiService.updateUserInfo(formData);
+      await apiService.updateUserInfo(formData, true);
       this.photo = JSON.parse(localStorage.getItem('user')).attributes.photo;
     }
   }
 }
 </script>
+
+<style>
+.save__success{
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+</style>
 
 <style scoped lang="scss">
   @import "@/assets/scss/pages/_cabinet.scss";
