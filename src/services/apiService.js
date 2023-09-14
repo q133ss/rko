@@ -3,21 +3,40 @@ import router from "../router/index.js";
 
 class apiService {
 
-	#host = 'http://127.0.0.1:8000/api';
+	setCookie(name,value,days) {
+		var expires = "";
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime() + (days*24*60*60*1000));
+			expires = "; expires=" + date.toUTCString();
+		}
+		document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+	}
+
+	getCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	}
 
 	async getToken(){
 		// Получение данных и даты и времени сохранения
-		const token = JSON.parse(localStorage.getItem('access_token'));
+		const token = this.getCookie('access_token');
 
-		if(token){
-			const accessToken = token.accessToken;
-			const tokenTimestamp = new Date(token.timestamp);
-
+		if(token !== null){
+			// const accessToken = token.accessToken;
 			// Проверяем, жив-ли наш токен
-			const currentTimestamp = new Date();
-			const differenceInMilliseconds = currentTimestamp - tokenTimestamp;
-			const differenceInHours = differenceInMilliseconds / (1000 * 60 * 60);
+			// const currentTimestamp = new Date();
+			// const differenceInMilliseconds = currentTimestamp - tokenTimestamp;
+			// const differenceInHours = differenceInMilliseconds / (1000 * 60 * 60);
 
+			return token;
+			//TODO NEED REFACTOR
 			if (differenceInHours < 1) {
 				// Токену меньше часа
 				// Отдаем его
@@ -26,25 +45,23 @@ class apiService {
 				// Токену больше часа
 				// Делаем рефреш
 
-				const refreshToken = localStorage.getItem('refresh_token')
+				const refreshToken = this.getCookie('refresh_token')
 				let config = {
 					headers: {
+						'Access-Control-Allow-Origin': '*',
 						'Authorization': 'Bearer ' + refreshToken,
 						'Accept': 'application/json'
 					}
 				};
 
 				try {
-					const newToken = await axios.post(this.#host + '/auth/refresh-token', {}, config)
+					const newToken = await axios.post('/auth/refresh-token', {}, config)
 					// Перезаписываем токен
-					const newTokenData = {
-						accessToken: newToken.accessToken,
-						timestamp: new Date().getTime() // текущая дата и время в миллисекундах
-					};
-					localStorage.setItem('access_token', JSON.stringify(newTokenData));
+					this.setCookie('access_token', newToken.accessToken);
 					return newToken.accessToken;
 				} catch (err) {
-					localStorage.clear();
+					//TODO удалить куки
+					alert('Тут нужно удалить куки');
 				}
 			}
 		}
@@ -55,19 +72,22 @@ class apiService {
 	async sendPostQuery(endpoint, data, withAuth = false, contentType = null) {
 		try {
 			let config = {};
-			if(withAuth){
+			//if(withAuth){
 				config = {
 					headers: {
-						'Authorization': 'Bearer ' + await this.getToken()
+						'Access-Control-Allow-Origin': '*',
+						'Authorization': 'Bearer ' + await this.getToken(),
+						'Content-Type': 'application/json',
+						'Accept': 'application/json'
 					}
 				};
 
 				if(contentType !== null){
 					config.headers['Content-Type'] = contentType;
 				}
-			}
+			//}
 
-			const response = await axios.post(this.#host + endpoint, data, config)
+			const response = await axios.post('http://127.0.0.1:8000/api' + endpoint, data, config)
 			return response;
 		} catch (err) {
 			console.error(err);
@@ -78,13 +98,15 @@ class apiService {
 	async sendPatchQuery(endpoint, data) {
 		try {
 			let config = {
+				withCredentials: false,
 				headers: {
+					'Access-Control-Allow-Origin': '*',
 					'Authorization': 'Bearer ' + await this.getToken(),
 					'Content-Type': 'multipart/form-data'
 				}
 			};
 
-			const response = await axios.patch(this.#host + endpoint, data, config)
+			const response = await axios.patch(endpoint, data, config)
 			return response;
 		} catch (err) {
 			console.error(err);
@@ -98,12 +120,14 @@ class apiService {
 
 			if(withAuth){
 				config = {
+					withCredentials: false,
 					headers: {
+						'Access-Control-Allow-Origin': '*',
 						'Authorization': 'Bearer ' + await this.getToken()
 					}
 				};
 			}
-			const response = await axios.get(this.#host + endpoint, config);
+			const response = await axios.get('http://127.0.0.1:8000/api'+endpoint, config);
 			return response;
 		} catch (err) {
 			console.error(err);
@@ -115,14 +139,14 @@ class apiService {
 		try {
 			const query = await this.sendPostQuery('/auth/login', data);
 			//Сохраняем токен
-			const tokenData = {
-				accessToken: query.data.accessToken,
-				timestamp: new Date().getTime() // текущая дата и время в миллисекундах
-			};
-			localStorage.setItem('access_token', JSON.stringify(tokenData));
-			localStorage.setItem('refresh_token', query.data.refreshToken);
-			await router.push('/profile');
-			return true;
+			if(query.status === 201 && query.data.accessToken !== undefined) {
+				this.setCookie('access_token', query.data.accessToken, 1);
+				this.setCookie('refresh_token', query.data.refreshToken,1);
+				await router.push('/profile');
+				return true;
+			}else {
+				return false;
+			}
 		} catch (err) {
 			console.error(err);
 			return false;
@@ -132,16 +156,14 @@ class apiService {
 	async register(data) {
 		try {
 			const response = await this.sendPostQuery('/auth/register', data);
-
-			const tokenData = {
-				accessToken: response.data.accessToken,
-				timestamp: new Date().getTime() // текущая дата и время в миллисекундах
-			};
-
-			localStorage.setItem('access_token', JSON.stringify(tokenData));
-			localStorage.setItem('refresh_token', response.data.refreshToken);
-			await router.push('/profile');
-			return true;
+			if(response.status === 201) {
+				this.setCookie('access_token', response.data.accessToken);
+				this.setCookie('refresh_token', response.data.refreshToken);
+				await router.push('/profile');
+				return true;
+			}else{
+				return false;
+			}
 		} catch (err) {
 			console.error(err);
 			return false;
@@ -150,12 +172,15 @@ class apiService {
 
 	async getUserInfo() {
 		try {
-			if(!localStorage.getItem('user')){
+			if(this.getCookie('user') === null){
 				const response = await this.sendGetQuery('/me', true);
-				localStorage.setItem('user', JSON.stringify(response.data.data));
+				console.log(response)
+				//localStorage.setItem('user', JSON.stringify(response.data.data));
+				this.setCookie('user', JSON.stringify(response.data.data));
 				return response.data.data;
 			}else{
-				return localStorage.getItem('user');
+				//return localStorage.getItem('user');
+				return this.getCookie('user');
 			}
 		} catch (err) {
 			console.error(err);
@@ -174,7 +199,7 @@ class apiService {
 			//Обновляем юзера локально
 			if(response.status === 200) {
 				const userData = await this.sendGetQuery('/me', true);
-				localStorage.setItem('user', JSON.stringify(userData.data.data));
+				this.setCookie('user', JSON.stringify(userData.data.data));
 				return 'Данные успешно сохранены';
 			}
 			return 'Произошла ошибка, попробуйте еще раз';

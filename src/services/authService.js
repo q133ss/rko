@@ -1,7 +1,9 @@
+import apiService from "./apiService.js";
+
 class AuthService {
     checkAuth(){
-        const accessToken = localStorage.getItem('access_token');
-        if(accessToken){
+        const accessToken = apiService.getCookie('access_token');
+        if(accessToken !== null){
             return true;
         }
         return false;

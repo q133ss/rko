@@ -154,6 +154,10 @@ export default {
         const unFormattedData = await apiService.getUserInfo();
         let data;
 
+        console.log(unFormattedData);
+
+        return true;
+
         if(typeof(unFormattedData) == 'object'){
           data = unFormattedData;
         }else{
