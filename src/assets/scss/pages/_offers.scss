@@ -45,6 +45,10 @@
   // .offers__link
 
   &__link {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
     color: var(--main-blue-color);
     font-weight: 500;
     &:hover {

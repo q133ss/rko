@@ -3,6 +3,8 @@ import router from "../router/index.js";
 
 class apiService {
 
+	host = "http://rko.q133ss.beget.tech/api";
+
 	setCookie(name,value,days) {
 		var expires = "";
 		if (days) {
@@ -87,7 +89,7 @@ class apiService {
 				}
 			//}
 
-			const response = await axios.post('http://127.0.0.1:8000/api' + endpoint, data, config)
+			const response = await axios.post(this.host + endpoint, data, config)
 			return response;
 		} catch (err) {
 			console.error(err);
@@ -127,7 +129,7 @@ class apiService {
 					}
 				};
 			}
-			const response = await axios.get('http://127.0.0.1:8000/api'+endpoint, config);
+			const response = await axios.get(this.host+endpoint, config);
 			return response;
 		} catch (err) {
 			console.error(err);

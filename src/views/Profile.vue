@@ -9,8 +9,18 @@
         </div>
 
         <label class="cabinet__label">
-          <span class="cabinet__label-title">ФИО</span>
-          <input class="default-input" type="text" v-model="fio" />
+          <span class="cabinet__label-title">Фамилия</span>
+          <input class="default-input" type="text" v-model="lastname" />
+        </label>
+
+        <label class="cabinet__label">
+          <span class="cabinet__label-title">Имя</span>
+          <input class="default-input" type="text" v-model="name" />
+        </label>
+
+        <label class="cabinet__label">
+          <span class="cabinet__label-title">Отчество</span>
+          <input class="default-input" type="text" v-model="surname" />
         </label>
 
         <label class="cabinet__label">
@@ -123,7 +133,9 @@ export default {
     return {
       id: null,
       photo: null,
-      fio: null,
+      lastname: null,
+      name: null,
+      surname: null,
       email: null,
       phone: null,
       site: null,
@@ -154,17 +166,17 @@ export default {
         const unFormattedData = await apiService.getUserInfo();
         let data;
 
-        console.log(unFormattedData);
-
-        return true;
+        // console.log(unFormattedData);
 
         if(typeof(unFormattedData) == 'object'){
           data = unFormattedData;
         }else{
           data = JSON.parse(unFormattedData);
         }
+        this.surname = data.attributes.surname;
+        this.name = data.attributes.firstname;
+        this.lastname = data.attributes.patronymic;
 
-        this.fio = data.attributes.surname + " " + data.attributes.firstname + " " + data.attributes.patronymic;
         this.email = data.attributes.email;
         this.photo = data.attributes.photo;
         this.phone = data.attributes.phone;
@@ -185,7 +197,9 @@ export default {
       }
     },
     async update(){
-      //TODO добавать FIO
+      let firstname = this.name;
+      let surname = this.surname;
+      let patronymic = this.lastname;
       let email = this.email;
       let phone = this.phone;
       let site = this.site;
@@ -199,7 +213,7 @@ export default {
       let correspondence_address = this.correspondence_address;
       let correspondence_check = this.correspondence_check;
       let calculated_check = this.calculated_check;
-      let updateData = {email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check};
+      let updateData = {firstname, surname, patronymic, email, phone, site, social_network_1, social_network_2, inn, ogrn, bik, bank, correspondence_address, correspondence_check, calculated_check};
 
       if(this.is_electronic_document_management !== null){
         updateData.is_electronic_document_management = this.is_electronic_document_management;
@@ -220,7 +234,9 @@ export default {
       const formData = new FormData();
       formData.append('photo', file);
       await apiService.updateUserInfo(formData, true);
-      this.photo = JSON.parse(localStorage.getItem('user')).attributes.photo;
+      const unFormattedData = await apiService.getUserInfo();
+      let data = JSON.parse(unFormattedData);
+      this.photo = "http://rko.q133ss.beget.tech/"+data.attributes.photo;
     }
   }
 }

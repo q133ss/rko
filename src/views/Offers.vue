@@ -3,8 +3,10 @@
     <HeadLayout :head="head" />
     <div class="offers__content">
       <ul class="offers__filters">
-        <li class="offers__filter" v-for="(link, i) in filters" :key="i">
-          <router-link class="offers__link" to="/" :class="{ active: i == 0 }">{{ link }}</router-link>
+        <li class="offers__filter" v-for="(link, i) in filters" :key="i" v-show="link.show">
+          <button class="offers__link" :class="{ active: i == 0 }" @click="showMoreFilters(link)">
+            {{ link.title }}
+          </button>
         </li>
       </ul>
       <ul class="offers__articles">
@@ -20,14 +22,39 @@
   import SvgIcon from "@/components/shared/SvgIcon.vue";
   import OffevSmallArticle from "@/components/shared/OffevSmallArticle.vue";
   import HeadLayout from "@/components/shared/HeadLayout.vue";
+  import { ref } from "@vue/reactivity";
+  const filters = ref([
+    {
+      title: "Все предложения",
+      show: true,
+    },
+    {
+      title: "Регистрация бизнеса",
+      show: true,
+    },
+    {
+      title: "РКО",
+      show: true,
+    },
+    {
+      title: "Заявка на РКО",
+      show: false,
+    },
+    {
+      title: "Заявка на РКО по фер ссылке",
+      show: false,
+    },
+    {
+      title: "Заявка на кредитную карту",
+      show: true,
+    },
+  ]);
 
   const head = {
     link: "/offers",
     icon: "bank",
     title: "Предложения",
   };
-
-  const filters = ["Все предложения", "Регистрация бизнеса", "РКО", "Заявка на кредитную карту"];
 
   const offers = [
     {
@@ -60,6 +87,23 @@
       ],
     },
   ];
+
+  function showMoreFilters(e) {
+    if (e.title == "РКО") {
+      filters.value.forEach((element) => {
+        element.show = true;
+      });
+    } else {
+      filters.value.forEach((element) => {
+        if (element.title == "Заявка на РКО") {
+          element.show = false;
+        }
+        if (element.title == "Заявка на РКО по фер ссылке") {
+          element.show = false;
+        }
+      });
+    }
+  }
 </script>
 
 <style scoped lang="scss">

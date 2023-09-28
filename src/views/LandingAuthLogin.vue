@@ -13,7 +13,7 @@
     <div class="auth__content">
       <form class="auth__form" @submit.prevent="doLogin" @keyup.enter="doLogin">
         <label class="auth__item">
-          <span class="auth__label">Логин/Почта</span>
+          <span class="auth__label">Почта</span>
           <div class="auth__input">
             <input class="auth__input-input" v-model="login" type="email" placeholder="example@mail.com" />
           </div>

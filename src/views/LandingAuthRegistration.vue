@@ -5,18 +5,24 @@
     </div>
     <div class="auth__title">Регистрация в <span>RKO-Service</span></div>
     <span class="errors">{{errors[0]}}</span>
-    <div class="auth__content">
-      <form class="auth__form" @keyup.enter="doRegister">
+    <div class="auth__content auth__content_big">
+      <form class="auth__form auth__form_grid" @keyup.enter="doRegister">
         <label class="auth__item">
-          <span class="auth__label">ФИО</span>
+          <span class="auth__label">Фамилия</span>
           <div class="auth__input">
-            <input class="auth__input-input" v-model="fio" type="text" placeholder="ФИО" />
+            <input class="auth__input-input" type="text" v-model="lastname" placeholder="Фамилия" />
           </div>
         </label>
         <label class="auth__item">
-          <span class="auth__label">Логин/Почта</span>
+          <span class="auth__label">Почта</span>
           <div class="auth__input">
             <input class="auth__input-input" v-model="login" type="email" placeholder="example@mail.com" />
+          </div>
+        </label>
+        <label class="auth__item">
+          <span class="auth__label">Имя</span>
+          <div class="auth__input">
+            <input class="auth__input-input" v-model="name" type="text" placeholder="Имя" />
           </div>
         </label>
         <label class="auth__item">
@@ -31,7 +37,13 @@
           </div>
         </label>
         <label class="auth__item">
-          <span class="auth__label">Пароль</span>
+          <span class="auth__label">Отчество</span>
+          <div class="auth__input">
+            <input class="auth__input-input" v-model="surname" type="text" placeholder="Отчество" />
+          </div>
+        </label>
+        <label class="auth__item">
+          <span class="auth__label">Повторите пароль</span>
           <div class="auth__input">
             <input class="auth__input-input" v-model="re_password" :type="repeatPass ? 'password' : 'text'" placeholder="***********" />
             <button
@@ -70,7 +82,9 @@ import apiService from "../services/apiService.js";
 export default {
   data() {
     return {
-      fio: null,
+      lastname: null,
+      name: null,
+      surname: null,
       login: null,
       password: null,
       re_password: null,
@@ -81,8 +95,16 @@ export default {
     async doRegister(){
       this.errors = [];
 
-      if(!this.fio){
-        this.errors.push('Введите ФИО.');
+      if(!this.name){
+        this.errors.push('Введите имя.');
+      }
+
+      if(!this.lastname){
+        this.errors.push('Введите фамилию.');
+      }
+
+      if(!this.surname){
+        this.errors.push('Введите отчество.');
       }
 
       if(!this.login){
@@ -102,13 +124,16 @@ export default {
       }
 
       if(this.errors.length === 0){
-        let fio = this.fio;
+        let firstname = this.name;
+        let name = this.name;
+        let surname = this.lastname;
+        let patronymic = this.surname;
         let username = this.login;
         let email = this.login;
         let password = this.password;
         let password_confirmation = this.re_password;
 
-        let query = await apiService.register({fio, username, email, password, password_confirmation});
+        let query = await apiService.register({name, firstname, surname, patronymic, username, email, password, password_confirmation});
         if(!query){
           this.errors.push('Ошибка');
         }
@@ -123,6 +148,10 @@ export default {
   @import "@/assets/scss/landing/_auth.scss";
   .register__buttons {
     margin-top: 1rem;
+    max-width: 27.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5rem;
   }
   .auth__policy {
     max-width: 23.5rem;
