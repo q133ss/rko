@@ -3,7 +3,8 @@ import router from "../router/index.js";
 
 class apiService {
 
-	host = "http://rko.q133ss.beget.tech/api";
+	//host = "http://rko.q133ss.beget.tech/api";
+	host = "http://localhost:8000/api";
 
 	setCookie(name,value,days) {
 		var expires = "";
@@ -207,6 +208,16 @@ class apiService {
 			return 'Произошла ошибка, попробуйте еще раз';
 		} catch (err) {
 			console.error(err);
+		}
+	}
+
+	async getOffers() {
+		try {
+			const response = await this.sendGetQuery('/offers', true);
+			return response.data.data;
+		} catch (err) {
+			console.error(err);
+			return false;
 		}
 	}
 }
