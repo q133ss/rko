@@ -220,6 +220,35 @@ class apiService {
 			return false;
 		}
 	}
+
+	/*
+	 * Возвращает список заявок
+	 */
+	async getBids(inn,dates,phone,offerId,status) {
+		let url = "/bids?";
+
+		if(inn !== null && inn !== ''){
+			url += "inn="+inn
+		}
+		if(dates !== null && dates !== ''){
+			url += "&createdAt[]="+dates
+		}
+		if(phone !== null && phone !== ''){
+			url += "&phone="+phone
+		}
+		if(offerId !== null && offerId !== ''){
+			url += "&offerId="+offerId
+		}
+		if(status !== null && status !== ''){
+			url += "&status="+status
+		}
+
+		const response = await this.sendGetQuery(url, true);
+		if(response.status === 200) {
+			return response.data.data;
+		}
+		return false;
+	}
 }
 
 export default new apiService();
