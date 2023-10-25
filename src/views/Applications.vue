@@ -17,10 +17,22 @@
         <DateSelect />
       </div>
       <div class="applications__item">
-        <CustomInput title="ИНН" placeholder="Введите ИНН" :sublistItems="dates" />
+<!--        <CustomInput title="ИНН" :model="inn" @update:model="test" placeholder="Введите ИНН" :sublistItems="dates" />-->
+
+        <label class="custom-input">
+          <div class="custom-input__title">ИНН</div>
+          <input class="custom-input__input" type="text" v-model="inn" placeholder="Введите ИНН" />
+        </label>
+
       </div>
       <div class="applications__item">
-        <CustomInput title="Телефон" placeholder="Введите телефон" :sublistItems="dates" />
+<!--        <CustomInput title="Телефон" placeholder="Введите телефон" :sublistItems="dates" />-->
+
+        <label class="custom-input">
+          <div class="custom-input__title">Телефон</div>
+          <input class="custom-input__input" type="text" v-model="phone" placeholder="Введите телефон" />
+        </label>
+
       </div>
       <div class="applications__item">
         <CustomSelect
@@ -34,7 +46,7 @@
         <CustomSelect title="Статус" placeholder="Выберите статус" :sublistItems="status" arrow />
       </div>
       <div class="applications__apply">
-        <Button class="applications__apply-button" yellow>Применить</Button>
+        <Button class="applications__apply-button" @click="filter" yellow>Применить</Button>
       </div>
     </div>
     <div class="applications__info">
@@ -55,31 +67,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="app in apps">
             <td>2023-07-09</td>
-            <td>174</td>
-            <td>63120000000</td>
-            <td>Степанов Олег Александрович</td>
-            <td>89999999999</td>
-            <td>г.Сызрань Самарская обл.</td>
-            <td>RKO</td>
-            <td>(1) Локо Банк RKO</td>
-            <td>Отправлен</td>
-            <td>-</td>
-            <td>4000</td>
-          </tr>
-          <tr>
-            <td>2023-07-09</td>
-            <td>174</td>
-            <td>63120000000</td>
-            <td>Степанов Олег Александрович</td>
-            <td>89999999999</td>
-            <td>г.Сызрань Самарская обл.</td>
-            <td>RKO</td>
-            <td>(1) Локо Банк RKO</td>
-            <td>Отправлен</td>
-            <td>-</td>
-            <td>4000</td>
+            <td>{{app.attributes.id}}</td>
+            <td>{{app.attributes.inn}}</td>
+            <td>{{app.attributes.client_name}}</td>
+            <td>{{app.attributes.phone}}</td>
+            <td>{{app.attributes.city}}</td>
+            <td>RKO???</td>
+            <td>{{app.attributes.offer_id}}</td>
+            <td>{{app.attributes.status}}</td>
+            <td>{{app.attributes.detailing}}</td>
+            <td>{{app.attributes.earnings}}</td>
           </tr>
         </tbody>
       </table>
@@ -169,6 +168,34 @@
   ];
 </script>
 
+<script>
+import apiService from "../services/apiService.js";
+
+export default {
+  data() {
+    return {
+      apps: {},
+      inn: null,
+      dates: null,
+      phone: null,
+      offerId: null,
+      status: null,
+    }
+  },
+  async mounted() {
+    this.apps = await apiService.getBids(this.inn, this.dates, this.phone, this.offerId, this.status)
+    console.log(this.apps)
+  },
+  methods: {
+    async filter() {
+      console.log(this.inn,this.phone)
+      this.apps = await apiService.getBids(this.inn, this.dates, this.phone, this.offerId, this.status)
+    }
+  }
+}
+</script>
+
 <style scoped lang="scss">
   @import "@/assets/scss/pages/_applications.scss";
+  @import "@/assets/scss/components/_custom-input.scss";
 </style>

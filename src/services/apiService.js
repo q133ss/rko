@@ -3,7 +3,8 @@ import router from "../router/index.js";
 
 class apiService {
 
-	host = "http://rko.q133ss.beget.tech/api";
+	//host = "http://rko.q133ss.beget.tech/api";
+	host = "http://127.0.0.1:8000/api";
 
 	setCookie(name,value,days) {
 		var expires = "";
@@ -208,6 +209,35 @@ class apiService {
 		} catch (err) {
 			console.error(err);
 		}
+	}
+
+	/*
+	 * Возвращает список заявок
+	 */
+	async getBids(inn,dates,phone,offerId,status) {
+		let url = "/bids?";
+
+		if(inn !== null && inn !== ''){
+			url += "inn="+inn
+		}
+		if(dates !== null && dates !== ''){
+			url += "&createdAt[]="+dates
+		}
+		if(phone !== null && phone !== ''){
+			url += "&phone="+phone
+		}
+		if(offerId !== null && offerId !== ''){
+			url += "&offerId="+offerId
+		}
+		if(status !== null && status !== ''){
+			url += "&status="+status
+		}
+
+		const response = await this.sendGetQuery(url, true);
+		if(response.status === 200) {
+			return response.data.data;
+		}
+		return false;
 	}
 }
 
